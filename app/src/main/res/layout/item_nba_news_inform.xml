@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/ll_item_list"
+    android:background="@drawable/selector_white_gray_item"
+    android:weightSum="1">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/iv_new_cover"
+        android:layout_width="@dimen/px_200"
+        android:layout_height="@dimen/px_180"
+        android:layout_marginLeft="@dimen/text_title_margin"
+        android:layout_marginRight="@dimen/text_margin"
+        android:layout_marginTop="@dimen/text_margin_5"
+        android:layout_marginBottom="@dimen/text_margin_5"
+        android:src="@mipmap/latest_pic_social_loading150_150px"/>
+
+        <RelativeLayout
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_marginRight="@dimen/text_margin"
+            android:layout_height="@dimen/px_180">
+            <TextView
+                android:id="@+id/tv_news_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_black_80"
+                android:paddingTop="@dimen/text_margin_5"
+                android:paddingBottom="@dimen/text_margin_5"
+                android:textSize="@dimen/text_small_15"
+                android:singleLine="true"
+                android:text="2016-2017赛季马刺夺得总冠军"/>
+            <TextView
+                android:id="@+id/tv_news_abstract"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_content_gray"
+                android:paddingTop="@dimen/text_margin_5"
+                android:layout_below="@id/tv_news_title"
+                android:textSize="@dimen/text_small_13"
+                android:lines="2"
+                android:text="2017年6月22号买次横扫骑士夺得总冠军"/>
+            <RelativeLayout
+                android:paddingRight="@dimen/text_title_margin"
+                android:layout_alignParentBottom="true"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/tv_new_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:textSize="@dimen/text_small_12"
+                    android:textColor="@color/text_content_gray"
+                    android:text="02-18 11:53"/>
+                <TextView
+                    android:id="@+id/tv_comm_num"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text_small_12"
+                    android:textColor="@color/text_content_gray"
+                    android:text="21"/>
+                <ImageView
+                    android:id="@+id/iv_comm"
+                    android:layout_toLeftOf="@id/tv_comm_num"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/text_margin_5"
+                    android:src="@drawable/video_icon_comment_normal"/>
+                <TextView
+                    android:id="@+id/tv_fav_num"
+                    android:layout_toLeftOf="@id/iv_comm"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/text_margin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text_small_12"
+                    android:textColor="@color/text_content_gray"
+                    android:text="99"/>
+                <ImageView
+                    android:id="@+id/iv_fav"
+                    android:layout_marginRight="@dimen/text_margin_5"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@id/tv_fav_num"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:src="@drawable/latest_fav_nofocus_normal"/>
+            </RelativeLayout>
+        </RelativeLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/color_gray_line"/>
+
+
+
+</LinearLayout>

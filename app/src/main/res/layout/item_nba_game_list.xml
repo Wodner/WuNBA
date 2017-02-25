@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:id="@+id/ll_item_list"
+    android:layout_height="wrap_content">
+
+    <View
+        android:id="@+id/v_line"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/text_margin"
+        android:background="@color/color_gray_line"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tv_game_type"
+            android:textColor="@color/text_content_gray"
+            android:textSize="@dimen/text_small_13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/text_margin"
+            android:paddingTop="@dimen/text_margin_5"
+            android:paddingBottom="@dimen/text_margin_5"
+            android:text="比赛类型"/>
+        <TextView
+            android:id="@+id/tv_game_time"
+            android:textSize="@dimen/text_small_13"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_black_80"
+            android:text="09:30"/>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/color_gray_line"/>
+
+
+    <LinearLayout
+        android:layout_marginBottom="@dimen/text_margin_10"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_marginLeft="@dimen/text_margin_18"
+            android:layout_marginTop="@dimen/text_margin_10"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/iv_left_team"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@mipmap/ic_east"/>
+            <TextView
+                android:id="@+id/tv_team_name_left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/text_margin_3"
+                android:textSize="@dimen/text_small_13"
+                android:layout_gravity="center_horizontal"
+                android:text="东部"/>
+        </LinearLayout>
+
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+            <TextView
+                android:id="@+id/tv_broadcast_way"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/text_margin_5"
+                android:textSize="@dimen/text_small_13"
+                android:textColor="@color/text_content_gray"
+                android:layout_gravity="center_horizontal"
+                android:text="NBA联盟通 Best TV"/>
+            <RelativeLayout
+                android:layout_marginTop="@dimen/text_margin_5"
+                android:layout_below="@id/tv_broadcast_way"
+                android:layout_centerHorizontal="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <View
+                    android:id="@+id/v_line_ll"
+                    android:layout_width="1dp"
+                    android:layout_height="15dp"
+                    android:layout_marginTop="@dimen/text_margin_5"
+                    android:layout_centerInParent="true"
+                    android:layout_marginLeft="@dimen/text_middle_20"
+                    android:layout_marginRight="@dimen/text_middle_20"
+                    android:background="@color/color_gray_line"/>
+                <TextView
+                    android:id="@+id/tv_left_team_point"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toLeftOf="@id/v_line_ll"
+                    android:textSize="@dimen/text_middle_28"
+                    android:textColor="@color/text_content_gray"
+                    android:text="99"/>
+                <TextView
+                    android:id="@+id/tv_right_team_point"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/v_line_ll"
+                    android:textColor="@color/text_black_80"
+                    android:textSize="@dimen/text_middle_28"
+                    android:text="111"/>
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_marginTop="@dimen/text_margin_10"
+            android:layout_marginRight="@dimen/text_margin_18"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/iv_right_team"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@mipmap/ic_west"/>
+            <TextView
+                android:id="@+id/tv_team_name_right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/text_margin_3"
+                android:textSize="@dimen/text_small_13"
+                android:layout_gravity="center_horizontal"
+                android:text="西部"/>
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/color_gray_line"/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:id="@+id/ll_scrocebox_gamepre"
+            android:orientation="horizontal"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="@dimen/text_margin_10"
+            android:background="@drawable/selector_white_gray_item"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/iv_score_box_preview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/match_icon_boxscore"/>
+            <TextView
+                android:id="@+id/tv_scorebox_preview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/text_title_margin"
+                android:textColor="@color/default_color"
+                android:text="技术统计"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/color_gray_line"/>
+        <LinearLayout
+            android:id="@+id/ll_highlight_tuwen"
+            android:orientation="horizontal"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="@dimen/text_margin_10"
+            android:background="@drawable/selector_white_gray_item"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/iv_highlight_txt_pic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/match_icon_preview"/>
+            <TextView
+                android:id="@+id/tv_highlight_text_pic"
+                android:layout_marginLeft="@dimen/text_title_margin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/default_color"
+                android:text="精彩视频"/>
+        </LinearLayout>
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/color_gray_line"/>
+</LinearLayout>

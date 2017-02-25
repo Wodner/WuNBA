@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">WuNBA</string>
+
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+
+
+
+    <string-array name="nba_team_category">
+        <item>联盟</item>
+        <item>分区</item>
+    </string-array>
+
+</resources>

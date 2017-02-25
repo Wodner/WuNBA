@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="wu.wunba">
+
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
+
+    <application
+        android:name=".app.MyApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/MyNoActionBarTheme">
+
+
+        <activity android:name=".ui.activity.WelcomeNBAChina"
+            android:theme="@style/FullScreenTheme"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!--配置configChanges 播放视频横屏幕就不会崩溃-->
+
+        <activity android:name=".ui.activity.MainActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".ui.activity.GameDateSelectActivity"
+            android:theme="@style/SwipeBackLayoutTheme"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".ui.activity.NBAPlayerDetialActivity"
+            android:theme="@style/SwipeBackLayoutTheme"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".ui.activity.NBANewsDetailActivity"
+            android:theme="@style/SwipeBackLayoutTheme"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".ui.activity.NBAPicturesDetailActivity"
+            android:theme="@style/SwipeBackLayoutTheme"
+            android:screenOrientation="portrait"/>
+        <!--<service android:name=".service.NBAGetDataService"/>-->
+
+        <activity android:name=".ui.activity.NBAImportanceDayActivity"
+            android:theme="@style/SwipeBackLayoutTheme"
+            android:screenOrientation="portrait"/>
+
+    </application>
+
+</manifest>

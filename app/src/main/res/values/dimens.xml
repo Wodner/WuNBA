@@ -1,0 +1,50 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <dimen name="home_menu_width">240dp</dimen>
+    <dimen name="home_menu_top_height">130dp</dimen>
+
+
+    <dimen name="sectioned_top">@dimen/px_48</dimen>
+    <dimen name="sectioned_alignBottom">@dimen/px_16</dimen>
+
+
+    <dimen name="text_small_8">8sp</dimen>
+    <dimen name="text_small_10">10sp</dimen>
+    <dimen name="text_small_12">12sp</dimen>
+    <dimen name="text_small_13">13sp</dimen>
+    <dimen name="text_small_15">15sp</dimen>
+    <dimen name="text_small_16">16sp</dimen>
+    <dimen name="text_small_18">18sp</dimen>
+    <dimen name="text_middle_20">20sp</dimen>
+    <dimen name="text_middle_22">22sp</dimen>
+    <dimen name="text_middle_24">24sp</dimen>
+    <dimen name="text_middle_26">26sp</dimen>
+    <dimen name="text_middle_28">28sp</dimen>
+    <dimen name="text_middle_30">30sp</dimen>
+    <dimen name="text_middle_32">32sp</dimen>
+    <dimen name="text_middle_34">34sp</dimen>
+    <dimen name="text_middle_36">36sp</dimen>
+    <dimen name="text_middle_38">39sp</dimen>
+    <dimen name="text_middle_40">40sp</dimen>
+
+
+    <dimen name="text_margin">@dimen/px_26</dimen>
+    <dimen name="text_title_margin">@dimen/px_16</dimen>
+    <dimen name="text_margin_10">@dimen/px_20</dimen>
+    <dimen name="text_margin_8">@dimen/px_16</dimen>
+    <dimen name="text_margin_5">@dimen/px_10</dimen>
+    <dimen name="text_margin_3">@dimen/px_6</dimen>
+    <dimen name="text_margin_12">@dimen/px_24</dimen>
+    <dimen name="text_margin_15">@dimen/px_30</dimen>
+    <dimen name="text_margin_16">@dimen/px_32</dimen>
+    <dimen name="text_margin_18">@dimen/px_36</dimen>
+
+    <dimen name="text_margin_26">@dimen/px_52</dimen>
+    <dimen name="text_margin_28">@dimen/px_56</dimen>
+
+    <dimen name="text_margin_36">@dimen/px_72</dimen>
+    <dimen name="text_margin_38">@dimen/px_76</dimen>
+</resources>

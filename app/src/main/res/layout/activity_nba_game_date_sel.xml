@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/tb_toolbar"
+        app:title=" "
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/toolbar_color">
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:text="标题"/>
+    </android.support.v7.widget.Toolbar>
+
+    <com.github.tibolte.agendacalendarview.AgendaCalendarView
+        android:layout_below="@id/tb_toolbar"
+        android:id="@+id/agenda_calendar_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:agendaCurrentDayTextColor="@color/theme_primary"
+        app:calendarColor="@color/theme_primary"
+        app:calendarCurrentDayTextColor="@color/hotpink"
+        app:calendarDayTextColor="@color/theme_text_icons"
+        app:calendarHeaderColor="@color/toolbar_color"
+        app:calendarPastDayTextColor="@color/theme_light_primary"
+        app:fabColor="@color/default_color" />
+
+</RelativeLayout>

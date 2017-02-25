@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:clipToPadding="true"
+    android:background="@color/black">
+
+
+    <include layout="@layout/common_toolbar"/>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <android.support.v4.view.ViewPager
+            android:id="@+id/photo_viewpager"
+            android:layout_width="match_parent"
+            android:layout_centerInParent="true"
+            android:layout_height="match_parent"/>
+        <ScrollView
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/px_60"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px_120">
+            <TextView
+                android:id="@+id/tv_pic_msg"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="@dimen/text_small_12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/text_margin_8"
+                android:layout_alignParentBottom="true"
+                android:background="#3f000000"/>
+        </ScrollView>
+    </RelativeLayout>
+
+
+
+
+
+
+</LinearLayout>

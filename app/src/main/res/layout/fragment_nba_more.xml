@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_centerInParent="true" android:layout_width="match_parent"  android:layout_height="wrap_content"
+            android:padding="@dimen/text_title_margin" android:textSize="@dimen/text_small_13"  android:textColor="@color/text_title_gray"
+            android:background="@color/color_gray_line" android:text="更多"/>
+
+        <RelativeLayout
+            android:id="@+id/rl_title_team"
+            android:padding="@dimen/text_margin"
+            android:background="@drawable/selector_white_gray_item"
+            android:layout_width="match_parent" android:layout_height="wrap_content">
+            <ImageView android:id="@+id/iv_title_team" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:src="@mipmap/more_icon_content_team"/>
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/iv_title_team" android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/text_margin" android:text="球队"/>
+
+            <ImageView android:layout_alignParentRight="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@mipmap/more_list_button_inter"   />
+        </RelativeLayout>
+        <View android:layout_width="match_parent" android:layout_height="0.5dp" android:background="@color/color_gray_line"/>
+
+        <RelativeLayout
+            android:id="@+id/rl_title_player"
+            android:padding="@dimen/text_margin"
+            android:background="@drawable/selector_white_gray_item"
+            android:layout_width="match_parent" android:layout_height="wrap_content">
+            <ImageView android:id="@+id/iv_title_player" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:src="@mipmap/more_icon_content_player"/>
+
+            <TextView  android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/iv_title_player" android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/text_margin" android:text="球员"/>
+
+            <ImageView android:layout_alignParentRight="true" android:layout_width="wrap_content"  android:layout_height="wrap_content" android:src="@mipmap/more_list_button_inter"   />
+        </RelativeLayout>
+
+        <View android:layout_width="match_parent" android:layout_height="0.5dp" android:background="@color/color_gray_line"/>
+
+        <RelativeLayout
+            android:id="@+id/rl_title_team_schedule"
+            android:padding="@dimen/text_margin"
+            android:background="@drawable/selector_white_gray_item"
+            android:layout_width="match_parent" android:layout_height="wrap_content">
+            <ImageView  android:id="@+id/iv_title_team_schedule" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@mipmap/more_icon_content_qdsc"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/iv_title_team_schedule" android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/text_margin" android:text="球队赛程"/>
+            <ImageView android:layout_alignParentRight="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@mipmap/more_list_button_inter"   />
+        </RelativeLayout>
+
+        <View android:layout_width="match_parent" android:layout_height="0.5dp" android:background="@color/color_gray_line"/>
+
+        <!--<RelativeLayout-->
+            <!--android:id="@+id/rl_title_rank"-->
+            <!--android:padding="@dimen/text_margin"-->
+            <!--android:background="@drawable/selector_white_gray_item"-->
+            <!--android:layout_width="match_parent" android:layout_height="wrap_content">-->
+            <!--<ImageView  android:id="@+id/iv_title_rank" android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content" android:src="@mipmap/more_icon_content_ranking"/>-->
+            <!--<TextView android:layout_width="wrap_content" android:layout_height="wrap_content"-->
+                <!--android:layout_toRightOf="@id/iv_title_rank" android:layout_centerVertical="true"-->
+                <!--android:layout_marginLeft="@dimen/text_margin" android:text="排名"/>-->
+            <!--<ImageView-->
+                <!--android:layout_alignParentRight="true" android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content" android:src="@mipmap/more_list_button_inter"   />-->
+        <!--</RelativeLayout>-->
+
+        <View android:layout_width="match_parent" android:layout_height="0.5dp" android:background="@color/color_gray_line"/>
+
+        <RelativeLayout
+            android:id="@+id/rl_title_picture"
+            android:padding="@dimen/text_margin"
+            android:background="@drawable/selector_white_gray_item"
+            android:layout_width="match_parent" android:layout_height="wrap_content">
+            <ImageView android:id="@+id/iv_title_pictures" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:src="@mipmap/more_icon_content_img"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/iv_title_pictures" android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/text_margin" android:text="图集"/>
+            <ImageView android:layout_alignParentRight="true" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:src="@mipmap/more_list_button_inter"   />
+        </RelativeLayout>
+
+        <View android:layout_width="match_parent" android:layout_height="0.5dp" android:background="@color/color_gray_line"/>
+
+        <RelativeLayout
+            android:id="@+id/rl_title_important_day"
+            android:padding="@dimen/text_margin"
+            android:background="@drawable/selector_white_gray_item"
+            android:layout_width="match_parent" android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/iv_title_important_day" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:src="@mipmap/more_icon_content_time"/>
+            <TextView
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/iv_title_important_day" android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/text_margin" android:text="重要日期"/>
+            <ImageView
+                android:layout_alignParentRight="true" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:src="@mipmap/more_list_button_inter"   />
+        </RelativeLayout>
+
+        <View android:layout_width="match_parent" android:layout_height="0.5dp" android:background="@color/color_gray_line"/>
+
+        <TextView
+            android:layout_centerInParent="true" android:layout_width="match_parent"  android:layout_height="wrap_content"
+            android:padding="@dimen/text_title_margin" android:textSize="@dimen/text_small_13"  android:textColor="@color/text_title_gray"
+            android:background="@color/color_gray_line" android:text="赛事互动"/>
+
+        <RelativeLayout
+            android:id="@+id/rl_title_today_nba"
+            android:padding="@dimen/text_margin"
+            android:background="@drawable/selector_white_gray_item"
+            android:layout_width="match_parent" android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/iv_title_today_nba" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:src="@mipmap/more_today_nba"/>
+
+            <ImageView
+                android:layout_alignParentRight="true" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:src="@mipmap/more_list_button_inter"   />
+        </RelativeLayout>
+
+        <View android:layout_width="match_parent" android:layout_height="0.5dp" android:background="@color/color_gray_line"/>
+
+        <TextView
+            android:layout_centerInParent="true" android:layout_width="match_parent"  android:layout_height="wrap_content"
+            android:padding="@dimen/text_title_margin" android:textSize="@dimen/text_small_13"  android:textColor="@color/text_title_gray"
+            android:background="@color/color_gray_line" android:text="购买"/>
+
+        <RelativeLayout
+            android:id="@+id/rl_title_nba_store"
+            android:padding="@dimen/text_margin"
+            android:background="@drawable/selector_white_gray_item"
+            android:layout_width="match_parent" android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/iv_title_nba_store" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:src="@mipmap/more_icon_nbastore"/>
+            <ImageView
+                android:layout_alignParentRight="true" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:src="@mipmap/more_list_button_inter"   />
+        </RelativeLayout>
+
+        <View android:layout_width="match_parent" android:layout_height="0.5dp" android:background="@color/color_background"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:background="@color/color_background"/>
+    </LinearLayout>
+
+</ScrollView>

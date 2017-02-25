@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:cube_ptr="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!--<View-->
+        <!--android:id="@+id/v_line"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="5dp"-->
+        <!--android:background="@color/color_gray_line"/>-->
+
+    <RelativeLayout
+        android:id="@+id/rl_schedule_day_picker"
+        android:padding="8dp"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_marginLeft="@dimen/text_margin"
+            android:id="@+id/iv_day_reduce"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/selector_game_date_left"/>
+        <LinearLayout
+            android:id="@+id/ll_date_picker"
+            android:layout_centerInParent="true"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/tv_match_date"
+                android:textSize="@dimen/text_small_15"
+                android:textColor="@color/text_content_gray"
+                android:layout_gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="02/18 (2场比赛)"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/text_title_margin"
+                android:src="@mipmap/match_time_icon"/>
+        </LinearLayout>
+        <ImageView
+            android:id="@+id/iv_day_add"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/text_margin"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:src="@drawable/selector_game_date_right"/>
+    </RelativeLayout>
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/rl_schedule_day_picker"/>
+
+
+
+        <ImageView
+            android:id="@+id/iv_no_data"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/network_no_data"/>
+
+        <ImageView
+            android:id="@+id/iv_network_error"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:visibility="gone"
+            android:layout_centerInParent="true"
+            android:src="@drawable/selector_network_error"/>
+
+</RelativeLayout>
