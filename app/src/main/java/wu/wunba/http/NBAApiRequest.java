@@ -611,6 +611,51 @@ public class NBAApiRequest {
     }
 
 
+    /**
+     * @param tabType
+     * @param statType
+     * @param seasonId
+     * @param requestCallBack
+     */
+    public static void getNBADataSort(String tabType,String statType,String seasonId,final RequestCallBack<String> requestCallBack){
+        RequestParams params = new RequestParams(NBAApi.getNBAPDataSort(tabType,statType,seasonId));
+        x.http().get(params, new Callback.CommonCallback<String>() {
+            @Override
+            public void onSuccess(String result) {
+                if (result != null && !TextUtils.isEmpty(result)) {
+                    requestCallBack.onSuccess(result);
+                }else {
+                    requestCallBack.onFailure("获取数据失败");
+                }
+            }
+
+            @Override
+            public void onError(Throwable ex, boolean isOnCallback) {
+                requestCallBack.onFailure("获取数据失败");
+            }
+
+            @Override
+            public void onCancelled(CancelledException cex) {
+
+            }
+
+            @Override
+            public void onFinished() {
+
+            }
+        });
+    }
+
+
+
+
+
+
+
+
+
+
+
 
 
 

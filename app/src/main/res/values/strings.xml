@@ -13,4 +13,18 @@
         <item>分区</item>
     </string-array>
 
+
+    <string-array name="nba_data_tab">
+        <item>每日</item>
+        <item>赛季</item>
+    </string-array>
+
+    <string-array name="nba_data_type_stat">
+        <item>得分</item>
+        <item>篮板</item>
+        <item>助攻</item>
+        <item>盖帽</item>
+        <item>抢断</item>
+    </string-array>
+
 </resources>

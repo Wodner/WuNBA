@@ -11,7 +11,6 @@ import org.xutils.x;
 
 import wu.wunba.BaseFragment;
 import wu.wunba.R;
-import wu.wunba.ui.fragment.MyTeamGameFragment;
 
 /**
  * 描述：
@@ -21,11 +20,11 @@ import wu.wunba.ui.fragment.MyTeamGameFragment;
 @ContentView(R.layout.fragment_news_care)
 public class NewsICareFragment extends BaseFragment{
 
-    public static MyTeamGameFragment myCareFragment;
+    public static NewsICareFragment myCareFragment;
 
-    public static MyTeamGameFragment getInstance(){
+    public static NewsICareFragment getInstance(){
         if(myCareFragment == null){
-            myCareFragment = new MyTeamGameFragment();
+            myCareFragment = new NewsICareFragment();
         }
         return myCareFragment;
     }

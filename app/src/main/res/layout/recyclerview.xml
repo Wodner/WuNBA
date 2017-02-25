@@ -64,21 +64,21 @@
                         android:id="@+id/tv_team_lose"
                         android:layout_width="0dp"
                         android:layout_weight="1"
-                        android:textColor="@color/text_black_60"
+                        android:textColor="@color/text_black_80"
                         android:layout_height="wrap_content"
                         android:text="负"/>
                     <TextView
                         android:id="@+id/tv_team_winProbility"
                         android:layout_width="0dp"
                         android:layout_weight="1"
-                        android:textColor="@color/text_black_60"
+                        android:textColor="@color/text_black_80"
                         android:layout_height="wrap_content"
                         android:text="胜率"/>
                     <TextView
                         android:id="@+id/tv_team_winBehind"
                         android:layout_width="0dp"
                         android:layout_weight="1"
-                        android:textColor="@color/text_black_60"
+                        android:textColor="@color/text_black_80"
                         android:layout_height="wrap_content"
                         android:text="胜差"/>
                 </LinearLayout>

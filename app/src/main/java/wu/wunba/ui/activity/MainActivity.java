@@ -18,7 +18,7 @@ import butterknife.Bind;
 import wu.wunba.BaseActivity;
 import wu.wunba.R;
 import wu.wunba.ui.adapter.NaviListMenuAdapter;
-import wu.wunba.ui.fragment.NbaDataFragment;
+import wu.wunba.ui.fragment.NBADataSortFragment;
 import wu.wunba.ui.fragment.NbaGameFragment;
 import wu.wunba.ui.fragment.NbaMoreFragment;
 import wu.wunba.ui.fragment.NbaNewsFragment;
@@ -87,7 +87,7 @@ public class MainActivity extends BaseActivity {
         fragmentList.add( NbaNewsFragment.getInstance());
         fragmentList.add( NbaGameFragment.getInstance());
         fragmentList.add( NbaTeamRankingFragment.getInstance());
-        fragmentList.add( NbaDataFragment.getInstance());
+        fragmentList.add( NBADataSortFragment.getInstance());
         fragmentList.add( NbaMoreFragment.getInstance());
     }
 

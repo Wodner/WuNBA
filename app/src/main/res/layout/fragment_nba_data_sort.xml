@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_marginTop="@dimen/text_margin_5"
+        android:layout_marginBottom="@dimen/text_margin_5"
+        android:layout_marginRight="@dimen/text_margin_8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Spinner
+            android:id="@+id/spinner_stat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:entries="@array/nba_data_type_stat" />
+        <Spinner
+            android:id="@+id/spinner_tab"
+            android:layout_width="wrap_content"
+            android:layout_toLeftOf="@id/spinner_stat"
+            android:layout_height="wrap_content"
+            android:entries="@array/nba_data_tab" />
+
+    </RelativeLayout>
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/rl_schedule_day_picker"/>
+
+        <ImageView
+            android:id="@+id/iv_no_data"
+            android:visibility="gone"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/network_no_data"/>
+
+        <ImageView
+            android:id="@+id/iv_network_error"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:visibility="gone"
+            android:layout_centerInParent="true"
+            android:src="@drawable/selector_network_error"/>
+
+
+    </RelativeLayout>
+
+
+
+
+
+
+
+
+
+</LinearLayout>

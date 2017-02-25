@@ -32,7 +32,7 @@ public class NBAApi {
      * @param seasonId 2016
      * @return
      */
-    public static String getNBAPlayerData(String tabType,String statType,String seasonId){
+    public static String getNBAPDataSort(String tabType,String statType,String seasonId){
         return BaseUrl + "player/statsRank?statType=" + statType + "&num=25&tabType=" + tabType + "&seasonId=" + seasonId + DefaulttUrl;
     }
 

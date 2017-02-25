@@ -8,7 +8,7 @@ import java.util.List;
  * 邮箱：wuwende@live.cn
  */
 
-public class ModeNBADataBlock {
+public class ModelNBADataBlock {
 
     /**
      * code : 0

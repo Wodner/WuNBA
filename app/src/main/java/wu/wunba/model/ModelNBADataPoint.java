@@ -74,12 +74,15 @@ public class ModelNBADataPoint {
             private String serial;
             private String playerId;
             private String playerUrl;
+
             private String playerName;
             private String playerEnName;
             private String playerIcon;
+
             private String jerseyNum;
             private String teamId;
             private String teamUrl;
+
             private String teamName;
             private String teamIcon;
             private String value;
