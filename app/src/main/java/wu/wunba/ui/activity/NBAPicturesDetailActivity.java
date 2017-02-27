@@ -211,7 +211,7 @@ public class NBAPicturesDetailActivity extends BaseSwipeBackCompatActivity imple
 
         if(item.getItemId()==R.id.news_share){
             Logger.d("---- " + shareUrl);
-            MyUtils.showShare(mContext,shareUrl,txtTitle,txtAbstract);
+            MyUtils.showShare(mContext,shareUrl,shareUrl,txtTitle,txtAbstract);
         }
         return super.onOptionsItemSelected(item);
     }

@@ -77,7 +77,7 @@ public class MyUtils {
     }
 
 
-    public static void showShare(Context context,String url,String title,String txtAbstract) {
+    public static void showShare(Context context,String titleUrl,String url,String title,String txtAbstract) {
         ShareSDK.initSDK(context);
         OnekeyShare oks = new OnekeyShare();
         //关闭sso授权
@@ -88,6 +88,7 @@ public class MyUtils {
         oks.setTitleUrl(url);
         // text是分享文本，所有平台都需要这个字段
         oks.setText(txtAbstract);
+        oks.setImageUrl(titleUrl);
         // imagePath是图片的本地路径，Linked-In以外的平台都支持此参数
         //oks.setImagePath("/sdcard/test.jpg");//确保SDcard下面存在此张图片
         // url仅在微信（包括好友和朋友圈）中使用

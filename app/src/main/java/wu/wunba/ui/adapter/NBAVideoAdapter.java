@@ -21,6 +21,7 @@ import wu.wunba.R;
 import wu.wunba.http.NBAApiRequest;
 import wu.wunba.http.RequestCallBack;
 import wu.wunba.model.NBAVideo;
+import wu.wunba.utils.MyUtils;
 import wu.wunba.utils.Xutils3ImageUtils;
 
 /**
@@ -62,7 +63,6 @@ public class NBAVideoAdapter extends RecyclerView.Adapter<NBAVideoAdapter.VideoV
     @Override
     public void onBindViewHolder(final VideoViewHolder holder, final int position) {
         holder.tvVideoTitle.setText(modeNBAVideoList.get(position).getTitle());
-
         NBAApiRequest.getNBAVideoRealUrl(modeNBAVideoList.get(position).getVid(), new RequestCallBack<String>() {
             @Override
             public void onSuccess(String url) {
@@ -83,6 +83,19 @@ public class NBAVideoAdapter extends RecyclerView.Adapter<NBAVideoAdapter.VideoV
         holder.tvCommNum.setText(modeNBAVideoList.get(position).getCommentNum());
         holder.tvFavNum.setText(modeNBAVideoList.get(position).getUpNum());
         holder.tvDuration.setText(modeNBAVideoList.get(position).getDuration());
+
+        holder.ivShare.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MyUtils.showShare(mContext,
+                        modeNBAVideoList.get(position).getImgurl(),
+
+                        modeNBAVideoList.get(position).getUrl(),
+
+                        modeNBAVideoList.get(position).getTitle(),
+                        modeNBAVideoList.get(position).getAbstractX());
+            }
+        });
     }
 
     class VideoViewHolder extends RecyclerView.ViewHolder{

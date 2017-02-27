@@ -267,7 +267,7 @@ public class NBANewsDetailActivity extends BaseSwipeBackCompatActivity implement
     public boolean onOptionsItemSelected(MenuItem item) {
 
         if(item.getItemId()==R.id.news_share){
-            MyUtils.showShare(mContext,shareUrl,tvNewsTitle.getText().toString(),txtAbstract);
+            MyUtils.showShare(mContext,shareUrl,shareUrl,tvNewsTitle.getText().toString(),txtAbstract);
         }
         return super.onOptionsItemSelected(item);
     }
