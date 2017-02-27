@@ -39,7 +39,7 @@ public class NbaNewsFragment extends BaseFragment {
     private List<Fragment> mFragment = new ArrayList<>();
     private ViewPagerFragmentAdatper adatper;
 
-    private String titles[] = {"NBA头条", "NBA资讯","NBA图集","视频集锦","最佳进球","NBA花絮","社交媒体","关注新闻","关注视频"};
+    private String titles[] = {"NBA头条", "NBA资讯","NBA图集","视频集锦","最佳进球","NBA花絮"};
 
     public static NbaNewsFragment getInstance(){
         if(nbaNewsFragment == null){
@@ -64,9 +64,6 @@ public class NbaNewsFragment extends BaseFragment {
         mFragment.add(VideoHighlightFragment.getInstance(""));//视频集锦
         mFragment.add(VideoBestFragment.getInstance());//最佳进球
         mFragment.add(VideoTidbitsFragment.getInstance());//NBA花絮
-        mFragment.add(NewsSocialMediaFragment.getInstance());//社交媒体
-        mFragment.add(NewsICareFragment.getInstance());//关注新闻
-        mFragment.add(VideoICareAboutFragment.getInstance());//关注视频
         adatper = new ViewPagerFragmentAdatper(getChildFragmentManager(),mFragment,titles);
         viewPager.setAdapter(adatper);
         tabLayout.setupWithViewPager(viewPager);

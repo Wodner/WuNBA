@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import org.xutils.view.annotation.ViewInject;
@@ -16,6 +17,7 @@ import java.util.List;
 
 import wu.wunba.R;
 import wu.wunba.model.NBADataSort;
+import wu.wunba.utils.ItemAnimHelper;
 
 /**
  * 描述：NBA数据 适配器
@@ -29,6 +31,7 @@ public class NBADataSortAdapter extends RecyclerView.Adapter<NBADataSortAdapter.
     private int dataType =10;
     private int dataSize = 0;
     private List<NBADataSort> nbaDataSortList;
+    private ItemAnimHelper itemAnimhelper = new ItemAnimHelper();
 
 
     public NBADataSortAdapter(Context context){
@@ -80,9 +83,12 @@ public class NBADataSortAdapter extends RecyclerView.Adapter<NBADataSortAdapter.
                 }
             });
         }
+        itemAnimhelper.showItemAnim(holder.linearLayout, position);
     }
 
     class MyViewHolder extends RecyclerView.ViewHolder{
+        @ViewInject(R.id.rl_data)
+        RelativeLayout linearLayout;
         @ViewInject(R.id.iv_player)
         ImageView ivPlayer;
         @ViewInject(R.id.iv_team)

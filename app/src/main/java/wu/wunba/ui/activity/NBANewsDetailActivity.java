@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.widget.ImageView;
@@ -21,7 +23,6 @@ import org.json.JSONObject;
 import org.xutils.common.util.DensityUtil;
 
 import butterknife.Bind;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 import wu.wunba.BaseSwipeBackCompatActivity;
 import wu.wunba.R;
@@ -31,6 +32,7 @@ import wu.wunba.ui.view.NBANewsDetailView;
 import wu.wunba.ui.widget.BasketballLoading;
 import wu.wunba.utils.DimenUtils;
 import wu.wunba.utils.MyStatusBarUtil;
+import wu.wunba.utils.MyUtils;
 import wu.wunba.utils.Xutils3ImageUtils;
 
 /**
@@ -172,6 +174,8 @@ public class NBANewsDetailActivity extends BaseSwipeBackCompatActivity implement
         llNewsDetail.removeAllViews();
         try {
             JSONObject jsonObject = new JSONObject(json);
+            shareUrl = jsonObject.getString("url");
+            txtAbstract = jsonObject.getString("abstract");
             tvNewsTitle.setText(jsonObject.getString("title"));
             tvNewSource.setText(jsonObject.getString("source"));
             tvPubTime.setText(jsonObject.getString("pub_time"));
@@ -195,6 +199,7 @@ public class NBANewsDetailActivity extends BaseSwipeBackCompatActivity implement
                     ivNews.setLayoutParams(getLinearLayoutImageViewParms(5, 5, width, height));
                     ivNews.setMaxWidth(DensityUtil.getScreenWidth());
                     ivNews.setMaxHeight(DensityUtil.getScreenWidth());
+
                     Xutils3ImageUtils.display(ivNews, url, Xutils3ImageUtils.getImageOptionsDefault(R.mipmap.latest_pic_head_loading_720px,
                             R.mipmap.latest_pic_head_loading_720px));
                     llNewsDetail.addView(ivNews);
@@ -247,11 +252,23 @@ public class NBANewsDetailActivity extends BaseSwipeBackCompatActivity implement
         return params;
     }
 
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
-        ButterKnife.bind(this);
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_share,menu);
+        return true;
     }
 
+
+    String shareUrl;
+    String txtAbstract;
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        if(item.getItemId()==R.id.news_share){
+            MyUtils.showShare(mContext,shareUrl,tvNewsTitle.getText().toString(),txtAbstract);
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }

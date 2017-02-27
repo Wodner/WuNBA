@@ -32,8 +32,6 @@ public class NBAGameAdapter  extends RecyclerView.Adapter<NBAGameAdapter.NBAGame
 
     private Context mContext;
     private List<NBAMatch.DataBean.MatchesBean> gameMatch;
-    public static final int TYPE_SCROCE_BOX_PREVIEW = 0;
-    public static final int TYPE_HIGHTLIGHT_TEXT_LIVE = 1;
     private ItemAnimHelper itemAnimhelper = new ItemAnimHelper();
 
     public NBAGameAdapter(Context context) {
@@ -118,50 +116,6 @@ public class NBAGameAdapter  extends RecyclerView.Adapter<NBAGameAdapter.NBAGame
                         Xutils3ImageUtils.getImageOptionsDefault());
             }
         }
-        if(Integer.valueOf(gameMatch.get(position).getMatchInfo().getTabs().get(0).getType()).intValue()==1){
-            holder.ivScoreBoxPreview.setImageResource(R.mipmap.match_icon_highlights_video);
-        }else if(Integer.valueOf(gameMatch.get(position).getMatchInfo().getTabs().get(0).getType()).intValue()==3){
-            holder.ivScoreBoxPreview.setImageResource(R.mipmap.match_icon_boxscore);
-        }
-
-        if(Integer.valueOf(gameMatch.get(position).getMatchInfo().getTabs().get(1).getType()).intValue()==5){
-            holder.ivHighLightTxtPic.setImageResource(R.mipmap.match_icon_preview);
-        }else if(Integer.valueOf(gameMatch.get(position).getMatchInfo().getTabs().get(1).getType()).intValue()==5){
-            holder.ivScoreBoxPreview.setImageResource(R.mipmap.match_icon_play_by_play);
-        }
-        holder.tvScoreBoxPreview.setText(gameMatch.get(position).getMatchInfo().getTabs().get(0).getDesc());
-        holder.tvHighLightTextPi.setText(gameMatch.get(position).getMatchInfo().getTabs().get(1).getDesc());
-
-        //判断是否设置了监听器
-        if(onRecyclerViewItemClickListener != null){
-            //为ItemView设置监听器
-            holder.itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    int position = holder.getLayoutPosition(); // 1
-                    onRecyclerViewItemClickListener.onItemClick(v ,gameMatch.get(position),holder.getLayoutPosition());
-                }
-            });
-        }
-
-
-        holder.llHightlightTuwen.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(onScroceBoxPreviewAndHighlightTextLiveOnClickListener != null){
-                    onScroceBoxPreviewAndHighlightTextLiveOnClickListener.onClick(view,gameMatch.get(position),position,TYPE_HIGHTLIGHT_TEXT_LIVE);
-                }
-            }
-        });
-
-        holder.llScroBoxGamePre.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(onScroceBoxPreviewAndHighlightTextLiveOnClickListener != null){
-                    onScroceBoxPreviewAndHighlightTextLiveOnClickListener.onClick(view,gameMatch.get(position),position,TYPE_SCROCE_BOX_PREVIEW);
-                }
-            }
-        });
         itemAnimhelper.showItemAnim(holder.linearLayout, position);
 
     }
@@ -174,10 +128,6 @@ public class NBAGameAdapter  extends RecyclerView.Adapter<NBAGameAdapter.NBAGame
         ImageView ivLeftTeam;
         @ViewInject(R.id.iv_right_team)
         ImageView ivRightTeam;
-        @ViewInject(R.id.iv_score_box_preview)
-        ImageView ivScoreBoxPreview;
-        @ViewInject(R.id.iv_highlight_txt_pic)
-        ImageView ivHighLightTxtPic;
 
         @ViewInject(R.id.tv_game_type)
         TextView tvGameType;
@@ -193,14 +143,6 @@ public class NBAGameAdapter  extends RecyclerView.Adapter<NBAGameAdapter.NBAGame
         TextView tvLeftTeamPoint;
         @ViewInject(R.id.tv_right_team_point)
         TextView tvRightTeamPoint;
-        @ViewInject(R.id.tv_scorebox_preview)
-        TextView tvScoreBoxPreview;
-        @ViewInject(R.id.tv_highlight_text_pic)
-        TextView tvHighLightTextPi;
-        @ViewInject(R.id.ll_scrocebox_gamepre)
-        LinearLayout llScroBoxGamePre;
-        @ViewInject(R.id.ll_highlight_tuwen)
-        LinearLayout llHightlightTuwen;
 
         public NBAGameViewHolder(View v){
             super(v);

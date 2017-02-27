@@ -60,13 +60,12 @@
             android:layout_height="match_parent"
             android:layout_below="@id/rl_schedule_day_picker"/>
 
-
-
         <ImageView
             android:id="@+id/iv_no_data"
             android:layout_centerInParent="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             android:src="@mipmap/network_no_data"/>
 
         <ImageView

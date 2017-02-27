@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -15,6 +16,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import wu.wunba.R;
 import wu.wunba.model.NBATeamRank;
+import wu.wunba.utils.ItemAnimHelper;
 import wu.wunba.utils.Xutils3ImageUtils;
 
 /**
@@ -29,6 +31,7 @@ public class NBATeamRankAdapter extends RecyclerView.Adapter<NBATeamRankAdapter.
 
     private Context mContext;
     private List<NBATeamRank> nbaTeamRankList;
+    private ItemAnimHelper itemAnimhelper = new ItemAnimHelper();
 
     public NBATeamRankAdapter(Context mContext) {
         this.mContext = mContext;
@@ -77,9 +80,12 @@ public class NBATeamRankAdapter extends RecyclerView.Adapter<NBATeamRankAdapter.
                 }
             });
         }
+        itemAnimhelper.showItemAnim(holder.linearLayout, position);
     }
 
     class TeamRankViewHolder extends RecyclerView.ViewHolder {
+        @Bind(R.id.ll_list)
+        LinearLayout linearLayout;
         @Bind(R.id.tv_rank_num)
         TextView tvRankNum;
         @Bind(R.id.iv_team_icon)

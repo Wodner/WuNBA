@@ -64,18 +64,9 @@ public class NbaMoreFragment extends BaseFragment {
     private void teamScheduleOnClick(View v){
         Toast.makeText(getActivity(),"球队赛程",Toast.LENGTH_LONG).show();
     }
-//    @Event(type = View.OnClickListener.class,value = R.id.rl_title_rank)
-//    private void teamRankingOnClick(View v){
-//        Toast.makeText(getActivity(),"排名",Toast.LENGTH_LONG).show();
-//    }
-    @Event(type = View.OnClickListener.class,value = R.id.rl_title_picture)
-    private void pictureOnClick(View v){
-        Toast.makeText(getActivity(),"图集",Toast.LENGTH_LONG).show();
-    }
+
     @Event(type = View.OnClickListener.class,value = R.id.rl_title_important_day)
     private void ImportantDayOnClick(View v){
-//        Toast.makeText(getActivity(),"重要日期",Toast.LENGTH_LONG).show();
-
         NBAImportanceDayActivity.startAction(getActivity());
     }
     @Event(type = View.OnClickListener.class,value = R.id.rl_title_today_nba)

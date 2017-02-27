@@ -19,7 +19,7 @@ import wu.wunba.BaseActivity;
 import wu.wunba.R;
 import wu.wunba.ui.adapter.NaviListMenuAdapter;
 import wu.wunba.ui.fragment.NBADataSortFragment;
-import wu.wunba.ui.fragment.NbaGameFragment;
+import wu.wunba.ui.fragment.NBAGameLiveFragment;
 import wu.wunba.ui.fragment.NbaMoreFragment;
 import wu.wunba.ui.fragment.NbaNewsFragment;
 import wu.wunba.ui.fragment.NbaTeamRankingFragment;
@@ -85,7 +85,7 @@ public class MainActivity extends BaseActivity {
     private void initFragment(){
         fragmentList.clear();
         fragmentList.add( NbaNewsFragment.getInstance());
-        fragmentList.add( NbaGameFragment.getInstance());
+        fragmentList.add( NBAGameLiveFragment.getInstance());
         fragmentList.add( NbaTeamRankingFragment.getInstance());
         fragmentList.add( NBADataSortFragment.getInstance());
         fragmentList.add( NbaMoreFragment.getInstance());

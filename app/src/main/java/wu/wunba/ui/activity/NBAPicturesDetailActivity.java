@@ -6,13 +6,15 @@ import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bm.library.PhotoView;
-import com.squareup.picasso.Callback;
+import com.orhanobut.logger.Logger;
 import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
@@ -30,6 +32,7 @@ import wu.wunba.ui.NBAPicturesDetailPresenter;
 import wu.wunba.ui.view.NBAPictruesDetailView;
 import wu.wunba.ui.widget.BasketballLoading;
 import wu.wunba.utils.MyStatusBarUtil;
+import wu.wunba.utils.MyUtils;
 
 /**
  * 描述：图集详情页面
@@ -124,6 +127,12 @@ public class NBAPicturesDetailActivity extends BaseSwipeBackCompatActivity imple
         imgUrl.clear();
         imgMsg.clear();
         try {
+
+            txtTitle = new JSONObject(result).getString("title");
+            shareUrl = new JSONObject(result).getString("url");
+            txtAbstract = new JSONObject(result).getString("abstract");
+
+
             JSONArray jsonArray = new JSONArray(new JSONObject(result).getString("content"));
             for(int i=0;i<jsonArray.length();i++){
                 JSONObject object = new JSONObject(jsonArray.get(i).toString());
@@ -167,15 +176,7 @@ public class NBAPicturesDetailActivity extends BaseSwipeBackCompatActivity imple
             view.setScaleType(ImageView.ScaleType.FIT_CENTER);
             Picasso.with(mContext).load(imgUrl.get(position)).
             placeholder(R.mipmap.latest_pic_default).error(R.mipmap.latest_pic_default)
-                    .into(view, new Callback() {
-                        @Override
-                        public void onSuccess() {
-                        }
-
-                        @Override
-                        public void onError() {
-                        }
-                    });
+                    .into(view);
             container.addView(view);
             return view;
         }
@@ -189,6 +190,30 @@ public class NBAPicturesDetailActivity extends BaseSwipeBackCompatActivity imple
         public boolean isViewFromObject(View view, Object object) {
             return view == object;
         }
+    }
+
+
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_share,menu);
+        return true;
+    }
+
+
+    String shareUrl;
+    String txtAbstract;
+    String txtTitle;
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        if(item.getItemId()==R.id.news_share){
+            Logger.d("---- " + shareUrl);
+            MyUtils.showShare(mContext,shareUrl,txtTitle,txtAbstract);
+        }
+        return super.onOptionsItemSelected(item);
     }
 
 

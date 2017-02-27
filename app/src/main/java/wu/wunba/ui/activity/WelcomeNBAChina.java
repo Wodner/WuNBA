@@ -1,5 +1,6 @@
 package wu.wunba.ui.activity;
 
+import android.Manifest;
 import android.content.Intent;
 import android.os.Handler;
 import android.support.annotation.NonNull;
@@ -37,7 +38,11 @@ public class WelcomeNBAChina extends BaseActivity implements EasyPermissions.Per
 
     @AfterPermissionGranted(RC_EXTERNAL_STORAGE)
     public void externalStorage(){
-        String perm[] = {android.Manifest.permission.READ_EXTERNAL_STORAGE, android.Manifest.permission.WRITE_EXTERNAL_STORAGE};
+        String perm[] = {android.Manifest.permission.READ_EXTERNAL_STORAGE,
+                android.Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                Manifest.permission.ACCESS_FINE_LOCATION,
+                Manifest.permission.ACCESS_COARSE_LOCATION,
+                Manifest.permission.ACCESS_LOCATION_EXTRA_COMMANDS};
         if(EasyPermissions.hasPermissions(mContext,perm)){
             splash();
         }else {

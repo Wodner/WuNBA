@@ -7,7 +7,7 @@
     <View
         android:id="@+id/v_line"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/text_margin"
+        android:layout_height="@dimen/text_margin_5"
         android:background="@color/color_gray_line"/>
 
     <RelativeLayout
@@ -140,68 +140,68 @@
 
     </LinearLayout>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/color_gray_line"/>
+    <!--<View-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="1dp"-->
+        <!--android:background="@color/color_gray_line"/>-->
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <LinearLayout
-            android:id="@+id/ll_scrocebox_gamepre"
-            android:orientation="horizontal"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:padding="@dimen/text_margin_10"
-            android:background="@drawable/selector_white_gray_item"
-            android:layout_height="wrap_content">
-            <ImageView
-                android:id="@+id/iv_score_box_preview"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/match_icon_boxscore"/>
-            <TextView
-                android:id="@+id/tv_scorebox_preview"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/text_title_margin"
-                android:textColor="@color/default_color"
-                android:text="技术统计"/>
+    <!--<LinearLayout-->
+        <!--android:orientation="horizontal"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content">-->
+        <!--<LinearLayout-->
+            <!--android:id="@+id/ll_scrocebox_gamepre"-->
+            <!--android:orientation="horizontal"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_weight="1"-->
+            <!--android:gravity="center"-->
+            <!--android:padding="@dimen/text_margin_10"-->
+            <!--android:background="@drawable/selector_white_gray_item"-->
+            <!--android:layout_height="wrap_content">-->
+            <!--<ImageView-->
+                <!--android:id="@+id/iv_score_box_preview"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:src="@mipmap/match_icon_boxscore"/>-->
+            <!--<TextView-->
+                <!--android:id="@+id/tv_scorebox_preview"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginLeft="@dimen/text_title_margin"-->
+                <!--android:textColor="@color/default_color"-->
+                <!--android:text="技术统计"/>-->
 
-        </LinearLayout>
+        <!--</LinearLayout>-->
 
-        <View
-            android:layout_width="1dp"
-            android:layout_height="match_parent"
-            android:background="@color/color_gray_line"/>
-        <LinearLayout
-            android:id="@+id/ll_highlight_tuwen"
-            android:orientation="horizontal"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:padding="@dimen/text_margin_10"
-            android:background="@drawable/selector_white_gray_item"
-            android:layout_height="wrap_content">
-            <ImageView
-                android:id="@+id/iv_highlight_txt_pic"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/match_icon_preview"/>
-            <TextView
-                android:id="@+id/tv_highlight_text_pic"
-                android:layout_marginLeft="@dimen/text_title_margin"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/default_color"
-                android:text="精彩视频"/>
-        </LinearLayout>
-    </LinearLayout>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/color_gray_line"/>
+        <!--<View-->
+            <!--android:layout_width="1dp"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:background="@color/color_gray_line"/>-->
+        <!--<LinearLayout-->
+            <!--android:id="@+id/ll_highlight_tuwen"-->
+            <!--android:orientation="horizontal"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_weight="1"-->
+            <!--android:gravity="center"-->
+            <!--android:padding="@dimen/text_margin_10"-->
+            <!--android:background="@drawable/selector_white_gray_item"-->
+            <!--android:layout_height="wrap_content">-->
+            <!--<ImageView-->
+                <!--android:id="@+id/iv_highlight_txt_pic"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:src="@mipmap/match_icon_preview"/>-->
+            <!--<TextView-->
+                <!--android:id="@+id/tv_highlight_text_pic"-->
+                <!--android:layout_marginLeft="@dimen/text_title_margin"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:textColor="@color/default_color"-->
+                <!--android:text="精彩视频"/>-->
+        <!--</LinearLayout>-->
+    <!--</LinearLayout>-->
+    <!--<View-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="1dp"-->
+        <!--android:background="@color/color_gray_line"/>-->
 </LinearLayout>

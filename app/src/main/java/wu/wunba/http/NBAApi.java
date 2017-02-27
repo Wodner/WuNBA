@@ -40,7 +40,7 @@ public class NBAApi {
      * @param date 比赛日期 如 2017-02-19
      * @return
      */
-    public static String getNBAGameTime(String date){
+    public static String getNBAGameLive(String date){
         return BaseUrl + "match/listByDate?date=" + date + DefaulttUrl;
     }
 

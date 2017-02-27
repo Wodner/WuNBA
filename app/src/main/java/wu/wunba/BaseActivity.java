@@ -8,6 +8,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
 
+import com.umeng.analytics.MobclickAgent;
+
 import butterknife.ButterKnife;
 import wu.wunba.ui.widget.BasketballLoading;
 import wu.wunba.utils.MyStatusBarUtil;
@@ -51,6 +53,8 @@ public abstract class BaseActivity extends AppCompatActivity {
             throw new IllegalArgumentException("You must return a right contentView layout resource Id");
         }
         initViewsAndEvents();
+
+        MobclickAgent.setCatchUncaughtExceptions(true);
     }
 
     protected void transparent19and20() {
@@ -159,5 +163,14 @@ public abstract class BaseActivity extends AppCompatActivity {
             basketballLoading.dismiss();
             basketballLoading=null;
         }
+    }
+
+    public void onResume() {
+        super.onResume();
+        MobclickAgent.onResume(this);
+    }
+    public void onPause() {
+        super.onPause();
+        MobclickAgent.onPause(this);
     }
 }
