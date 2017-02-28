@@ -132,6 +132,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/text_margin_3"
                 android:textSize="@dimen/text_small_13"
+                android:textColor="@color/default_color"
                 android:layout_gravity="center_horizontal"
                 android:text="西部"/>
         </LinearLayout>

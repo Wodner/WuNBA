@@ -194,6 +194,30 @@ public class NBAApi {
     }
 
 
+    /**
+     * 获取球员基本信息
+     * @param playerId
+     * @return
+     */
+    public static String getNBAPlayerBaseInfo(String playerId){
+        return BaseUrl + "player/baseInfo?playerId=" + playerId + DefaulttUrl;
+    }
+
+    /**获取球员的职业数据
+     * @param playerId
+     * @param type tabtype=1 单个赛季 tabtype=2 生涯
+     * @return
+     */
+    public static String getNBAPlayerData(String playerId,String type){
+        return BaseUrl + "player/stats?playerId=" + playerId + "&tabType="+type+DefaulttUrl;
+    }
+
+
+
+
+
+
+
 
 
 }

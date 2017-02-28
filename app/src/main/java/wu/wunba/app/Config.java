@@ -10,5 +10,5 @@ public class Config {
 
     public static final String ARTICLE_ID = "articleId";
     public static final String UPPER_ACTIVITY_NAME = "upperName";
-
+    public static final String PLAYER_ID = "playerid";
 }

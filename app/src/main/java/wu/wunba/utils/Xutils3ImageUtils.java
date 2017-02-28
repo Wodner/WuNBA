@@ -31,6 +31,19 @@ public class Xutils3ImageUtils {
         return imageOptionsDefault;
     }
 
+
+
+    /**
+     * @return
+     */
+    public static ImageOptions getImageOptionsDefaultNoLoadingFailure(){
+        ImageOptions imageOptionsDefault = new ImageOptions.Builder()
+                .setIgnoreGif(false)//是否忽略gif图。false表示不忽略。不写这句，默认是true
+                .setImageScaleType(ImageView.ScaleType.FIT_CENTER)//不裁剪 高清
+                .setUseMemCache(true)
+                .build();
+        return imageOptionsDefault;
+    }
     /**
      * @return
      */

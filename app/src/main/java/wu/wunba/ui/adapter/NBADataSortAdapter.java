@@ -83,7 +83,7 @@ public class NBADataSortAdapter extends RecyclerView.Adapter<NBADataSortAdapter.
                 }
             });
         }
-        itemAnimhelper.showItemAnim(holder.linearLayout, position);
+//        itemAnimhelper.showItemAnim(holder.linearLayout, position);
     }
 
     class MyViewHolder extends RecyclerView.ViewHolder{

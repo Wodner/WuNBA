@@ -682,10 +682,73 @@ public class NBAApiRequest {
 
 
 
+    /**
+     * @param playerId
+     * @param requestCallBack
+     */
+    public static void getNBAPlayerBaseInfo(String playerId,final RequestCallBack<String> requestCallBack){
+        RequestParams params = new RequestParams(NBAApi.getNBAPlayerBaseInfo(playerId));
+        x.http().get(params, new Callback.CommonCallback<String>() {
+            @Override
+            public void onSuccess(String result) {
+                if (result != null && !TextUtils.isEmpty(result)) {
+                    requestCallBack.onSuccess(result);
+                }else {
+                    requestCallBack.onFailure("获取数据失败");
+                }
+            }
+
+            @Override
+            public void onError(Throwable ex, boolean isOnCallback) {
+                requestCallBack.onFailure("获取数据失败");
+            }
+
+            @Override
+            public void onCancelled(CancelledException cex) {
+
+            }
+
+            @Override
+            public void onFinished() {
+
+            }
+        });
+    }
 
 
 
+    /**
+     * @param playerId
+     * @param requestCallBack
+     */
+    public static void getNBAPlayerData(String playerId,String type,final RequestCallBack<String> requestCallBack){
+        RequestParams params = new RequestParams(NBAApi.getNBAPlayerData(playerId,type));
+        x.http().get(params, new Callback.CommonCallback<String>() {
+            @Override
+            public void onSuccess(String result) {
+                if (result != null && !TextUtils.isEmpty(result)) {
+                    requestCallBack.onSuccess(result);
+                }else {
+                    requestCallBack.onFailure("获取数据失败");
+                }
+            }
 
+            @Override
+            public void onError(Throwable ex, boolean isOnCallback) {
+                requestCallBack.onFailure("获取数据失败");
+            }
+
+            @Override
+            public void onCancelled(CancelledException cex) {
+
+            }
+
+            @Override
+            public void onFinished() {
+
+            }
+        });
+    }
 
 
 

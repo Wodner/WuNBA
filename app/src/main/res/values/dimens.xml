@@ -19,6 +19,8 @@
     <dimen name="text_small_16">16sp</dimen>
     <dimen name="text_small_18">18sp</dimen>
     <dimen name="text_middle_20">20sp</dimen>
+
+    <dimen name="text_middle_21">21sp</dimen>
     <dimen name="text_middle_22">22sp</dimen>
     <dimen name="text_middle_24">24sp</dimen>
     <dimen name="text_middle_26">26sp</dimen>

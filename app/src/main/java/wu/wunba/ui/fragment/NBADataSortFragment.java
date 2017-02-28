@@ -20,8 +20,10 @@ import java.util.List;
 
 import wu.wunba.BaseFragment;
 import wu.wunba.R;
+import wu.wunba.app.Config;
 import wu.wunba.model.NBADataSort;
 import wu.wunba.ui.NBADataSortPresenter;
+import wu.wunba.ui.activity.NBAPlayerDetialActivity;
 import wu.wunba.ui.adapter.NBADataSortAdapter;
 import wu.wunba.ui.view.NBADataSortView;
 import wu.wunba.ui.widget.BasketballLoading;
@@ -35,7 +37,7 @@ import static wu.wunba.ui.NBADataSortPresenter.TYPE_TAB_DAY;
  * 邮箱：wuwende@live.cn
  */
 @ContentView(R.layout.fragment_nba_data_sort)
-public class NBADataSortFragment extends BaseFragment implements NBADataSortView{
+public class NBADataSortFragment extends BaseFragment implements NBADataSortView,NBADataSortAdapter.OnRecyclerViewItemClickListener{
 
     @ViewInject(R.id.recyclerview)
     RecyclerView recyclerView;
@@ -71,6 +73,7 @@ public class NBADataSortFragment extends BaseFragment implements NBADataSortView
         dataSortAdapter = new NBADataSortAdapter(getActivity());
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(dataSortAdapter);
+        dataSortAdapter.setOnItemClickListener(this);
         dataSortPresenter = new NBADataSortPresenter(getActivity(),this);
         dataSortPresenter.initialized(0);
         spinnerTab.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -95,6 +98,14 @@ public class NBADataSortFragment extends BaseFragment implements NBADataSortView
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {}
         });
+    }
+
+
+    @Override
+    public void onItemClick(View v, NBADataSort nbaDataSort, int postion) {
+        Bundle bundle = new Bundle();
+        bundle.putString(Config.PLAYER_ID,nbaDataSort.getPlayerId());
+        NBAPlayerDetialActivity.startAction(getActivity(),bundle);
     }
 
     @Override
