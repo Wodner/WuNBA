@@ -55,10 +55,11 @@ public class NBATeamPresenter implements Presenter {
                 @Override
                 public void onFailure(String errorMsg) {
                     teamView.hideLoading(true);
+                    teamView.showError("获取数据失败");
                 }
             });
         }else{
-            teamView.showError("0");
+            teamView.showError("网络连接异常");
             teamView.hideLoading(true);
         }
     }

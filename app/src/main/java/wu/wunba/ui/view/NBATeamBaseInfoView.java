@@ -1,5 +1,8 @@
 package wu.wunba.ui.view;
 
+import java.util.List;
+
+import wu.wunba.model.NBAPlayer;
 import wu.wunba.model.NBATeamBaseInfo;
 
 /**
@@ -11,4 +14,5 @@ import wu.wunba.model.NBATeamBaseInfo;
 public interface NBATeamBaseInfoView extends BaseView{
 
     void showTeamBaseInfo(NBATeamBaseInfo baseInfo);
+    void showTeamPlayers(List<NBAPlayer> playerList);
 }

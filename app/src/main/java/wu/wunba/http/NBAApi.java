@@ -230,6 +230,13 @@ public class NBAApi {
     }
 
 
+    /** 获取全部NBA球员
+     * @return
+     */
+    public static String getNBAPlayerList(){
+        return BaseUrl + "player/list?"+ DefaulttUrl;
+    }
+
 
 
 

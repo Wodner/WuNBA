@@ -2,9 +2,17 @@ package wu.wunba.ui.presenter;
 
 import android.content.Context;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import wu.wunba.http.JsonParser;
 import wu.wunba.http.NBAApiRequest;
 import wu.wunba.http.RequestCallBack;
+import wu.wunba.model.NBAPlayer;
 import wu.wunba.model.NBATeamBaseInfo;
 import wu.wunba.ui.view.NBATeamBaseInfoView;
 import wu.wunba.utils.MyUtils;
@@ -19,11 +27,13 @@ public class NBATeamBasnInfoPresenter implements Presenter {
 
 
     private Context mContext;
+    private List<NBAPlayer> nbaPlayerList;
     private NBATeamBaseInfoView baseInfoView;
 
     public NBATeamBasnInfoPresenter(Context mContext, NBATeamBaseInfoView baseInfoView) {
         this.mContext = mContext;
         this.baseInfoView = baseInfoView;
+        nbaPlayerList = new ArrayList<>();
     }
 
     @Override
@@ -32,7 +42,9 @@ public class NBATeamBasnInfoPresenter implements Presenter {
     }
 
 
-
+    /**
+     * @param teamId
+     */
     public void getNBATeamInfo(String teamId){
         if(MyUtils.isNetworkConnected(mContext)){
             baseInfoView.showLoading(true);
@@ -49,7 +61,31 @@ public class NBATeamBasnInfoPresenter implements Presenter {
                 }
             });
         }else {
-            baseInfoView.showError("0");
+            baseInfoView.showError("网络连接错误");
+            baseInfoView.hideLoading(true);
+        }
+    }
+
+
+    /**
+     * @param teamId
+     */
+    public void getNBATeamPlayers(final String teamId){
+        if(MyUtils.isNetworkConnected(mContext)){
+            baseInfoView.showLoading(true);
+            NBAApiRequest.getNBAPlayers(new RequestCallBack<String>() {
+                @Override
+                public void onSuccess(String s) {
+                    parsePlayerInfo(teamId,s);
+                }
+
+                @Override
+                public void onFailure(String errorMsg) {
+                    baseInfoView.showError("获取信息失败");
+                }
+            });
+        }else {
+            baseInfoView.showError("网络连接错误");
             baseInfoView.hideLoading(true);
         }
     }
@@ -61,4 +97,25 @@ public class NBATeamBasnInfoPresenter implements Presenter {
         baseInfoView.hideLoading(true);
     }
 
+
+    public void parsePlayerInfo(String teamId,String result){
+        nbaPlayerList.clear();
+        try {
+            JSONObject jsonObject = new JSONObject(result);
+            JSONArray jsonArray = new JSONArray(jsonObject.getString("data"));
+            for (int i=0;i<jsonArray.length();i++){
+                JSONObject object = new JSONObject(jsonArray.get(i).toString());
+                if(object.getString("teamId").equals(teamId)){
+                    NBAPlayer nbaPlayer = JsonParser.parseWithGson(NBAPlayer.class,jsonArray.get(i).toString());
+                    nbaPlayerList.add(nbaPlayer);
+                }
+            }
+            baseInfoView.hideLoading(true);
+            baseInfoView.showTeamPlayers(nbaPlayerList);
+        } catch (JSONException e) {
+            e.printStackTrace();
+            baseInfoView.hideLoading(true);
+            baseInfoView.showError("解析数据失败");
+        }
+    }
 }

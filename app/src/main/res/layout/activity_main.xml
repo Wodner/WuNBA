@@ -37,21 +37,30 @@
             android:layout_height="match_parent"
             android:layout_gravity="left">
 
-            <LinearLayout
+            <RelativeLayout
                 android:id="@+id/ll_home_navigation_top"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/home_menu_top_height"
                 android:layout_alignParentTop="true"
-                android:background="@color/colorPrimary"
-                android:gravity="center"
-                android:orientation="vertical">
+                android:background="@color/colorPrimary">
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:src="@mipmap/ic_kh" />
-            </LinearLayout>
+                    <wu.wunba.ui.widget.CircleImageView
+                        android:id="@+id/iv_user_logo"
+                        android:layout_centerInParent="true"
+                        android:layout_width="@dimen/px_128"
+                        android:layout_height="@dimen/px_128"
+                        android:src="@mipmap/ic_td"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/text_small_10"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginBottom="@dimen/px_10"
+                        android:layout_alignParentBottom="true"
+                        android:text="One Team, One Goal."/>
+            </RelativeLayout>
 
             <ListView
                 android:id="@+id/home_navigation_list"

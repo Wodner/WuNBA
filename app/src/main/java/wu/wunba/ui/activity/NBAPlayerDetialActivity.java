@@ -77,8 +77,6 @@ public class NBAPlayerDetialActivity extends BaseSwipeBackCompatActivity impleme
     TextView tvSteal;
     @Bind(R.id.tabs)
     TabLayout tabs;
-
-
     @Bind(R.id.recyclerview)
     RecyclerView recyclerView;
 
@@ -108,7 +106,12 @@ public class NBAPlayerDetialActivity extends BaseSwipeBackCompatActivity impleme
         playerDetailPresenter.getPlayerBaseInfo(playerId);
         playerDetailPresenter.getPlayerMatchData(playerId,TYPE_SEASON);
         playerDataAdapter = new NBAPlayerDataAdapter(mContext);
-        recyclerView.setLayoutManager(new LinearLayoutManager(mContext));
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        layoutManager.setSmoothScrollbarEnabled(true);
+        layoutManager.setAutoMeasureEnabled(true);
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setNestedScrollingEnabled(false);
         recyclerView.setAdapter(playerDataAdapter);
     }
 

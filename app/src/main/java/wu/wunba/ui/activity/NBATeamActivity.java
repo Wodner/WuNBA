@@ -106,9 +106,7 @@ public class NBATeamActivity extends BaseSwipeBackCompatActivity implements NBAT
 
     @Override
     public void showError(String msg) {
-        if (msg.equals("0")){
-            Toast.makeText(mContext,"网络连接异常",Toast.LENGTH_LONG).show();
-        }
+        Toast.makeText(mContext,"网络连接异常",Toast.LENGTH_LONG).show();
         recyclerview.refreshComplete(15);
     }
 

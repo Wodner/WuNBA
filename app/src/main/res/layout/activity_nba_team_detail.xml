@@ -61,9 +61,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
-            <!--<include-->
-                <!--app:layout_behavior="@string/appbar_scrolling_view_behavior"-->
-                <!--layout="@layout/item_nba_player_detail_body"/>-->
+            <include
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                layout="@layout/item_nba_team_detail_body"/>
 
         </android.support.v4.widget.NestedScrollView>
 

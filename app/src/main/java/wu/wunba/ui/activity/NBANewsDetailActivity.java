@@ -185,6 +185,7 @@ public class NBANewsDetailActivity extends BaseSwipeBackCompatActivity implement
                 if (object.getString("type").equals("text")) {
                     TextView tvInfo = new TextView(mContext);
                     tvInfo.setTextSize(16);
+                    tvInfo.setLineSpacing(3,1.2f);
                     tvInfo.setTextColor(getResources().getColor(R.color.text_black_80));
                     tvInfo.setText("        " + object.getString("info"));
                     tvInfo.setLayoutParams(getLinearLayoutTextViewParms(21, 0, 0, 0));

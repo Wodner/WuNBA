@@ -29,6 +29,7 @@
                 android:textColor="@color/white"
                 android:textStyle="bold"
                 android:textSize="@dimen/text_small_12"
+                android:lineSpacingExtra="@dimen/px_6"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/text_margin_8"
@@ -36,10 +37,4 @@
                 android:background="#3f000000"/>
         </ScrollView>
     </RelativeLayout>
-
-
-
-
-
-
 </LinearLayout>
