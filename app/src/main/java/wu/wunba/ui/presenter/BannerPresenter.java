@@ -1,4 +1,4 @@
-package wu.wunba.ui;
+package wu.wunba.ui.presenter;
 
 /**
  * 描述：

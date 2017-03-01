@@ -28,7 +28,7 @@ import butterknife.Bind;
 import wu.wunba.BaseSwipeBackCompatActivity;
 import wu.wunba.R;
 import wu.wunba.app.Config;
-import wu.wunba.ui.NBAPicturesDetailPresenter;
+import wu.wunba.ui.presenter.NBAPicturesDetailPresenter;
 import wu.wunba.ui.view.NBAPictruesDetailView;
 import wu.wunba.ui.widget.BasketballLoading;
 import wu.wunba.utils.MyStatusBarUtil;

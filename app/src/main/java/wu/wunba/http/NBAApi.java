@@ -213,7 +213,21 @@ public class NBAApi {
     }
 
 
+    /**
+     * @return  获取球队列表信息
+     */
+    public static String getNBATeamList(){
+        return BaseUrl + "team/list?"+ DefaulttUrl;
+    }
 
+
+    /**
+     * @param teamId
+     * @return
+     */
+    public static String getNBATeamBaseInfo(String teamId){
+        return BaseUrl  + "team/info?teamId=" + teamId + "&selects=baseInfo,isUserAttend" + DefaulttUrl;
+    }
 
 
 

@@ -26,7 +26,7 @@ import fm.jiecao.jcvideoplayer_lib.JCVideoPlayer;
 import wu.wunba.BaseFragment;
 import wu.wunba.R;
 import wu.wunba.model.NBAVideo;
-import wu.wunba.ui.NBAVideoPresenter;
+import wu.wunba.ui.presenter.NBAVideoPresenter;
 import wu.wunba.ui.adapter.NBAVideoAdapter;
 import wu.wunba.ui.view.NBAVideoView;
 

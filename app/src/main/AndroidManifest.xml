@@ -64,8 +64,18 @@
             android:theme="@style/SwipeBackLayoutTheme"
             android:screenOrientation="portrait"/>
 
+        <activity android:name=".ui.activity.NBAPlayersActivity"
+            android:theme="@style/SwipeBackLayoutTheme"
+            android:screenOrientation="portrait"/>
 
-
+        <activity android:name=".ui.activity.NBATeamActivity"
+            android:theme="@style/SwipeBackLayoutTheme"
+            android:screenOrientation="portrait"
+            />
+        <activity android:name=".ui.activity.NBATeamDetailActivity"
+            android:theme="@style/SwipeBackLayoutTheme"
+            android:screenOrientation="portrait"
+            />
 
 
         <meta-data

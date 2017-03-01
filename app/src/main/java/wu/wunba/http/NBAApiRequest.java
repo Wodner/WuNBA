@@ -751,11 +751,70 @@ public class NBAApiRequest {
     }
 
 
+    /**
+     * @param requestCallBack 获取球队列表
+     */
+    public static void getNBATeamList(final RequestCallBack<String> requestCallBack){
+        RequestParams params = new RequestParams(NBAApi.getNBATeamList());
+        x.http().get(params, new Callback.CommonCallback<String>() {
+            @Override
+            public void onSuccess(String result) {
+                if (result != null && !TextUtils.isEmpty(result)) {
+                    requestCallBack.onSuccess(result);
+                }else {
+                    requestCallBack.onFailure("获取数据失败");
+                }
+            }
 
+            @Override
+            public void onError(Throwable ex, boolean isOnCallback) {
+                requestCallBack.onFailure("获取数据失败");
+            }
 
+            @Override
+            public void onCancelled(CancelledException cex) {
 
+            }
 
+            @Override
+            public void onFinished() {
 
+            }
+        });
+    }
+
+    /**
+     * @param teamId 获取球队信息
+     * @param requestCallBack
+     */
+    public static void getNBATeamBaseInfo(String teamId,final RequestCallBack<String> requestCallBack){
+        RequestParams params = new RequestParams(NBAApi.getNBATeamBaseInfo(teamId));
+        x.http().get(params, new Callback.CommonCallback<String>() {
+            @Override
+            public void onSuccess(String result) {
+                if (result != null && !TextUtils.isEmpty(result)) {
+                    requestCallBack.onSuccess(result);
+                }else {
+                    requestCallBack.onFailure("获取数据失败");
+                }
+            }
+
+            @Override
+            public void onError(Throwable ex, boolean isOnCallback) {
+                requestCallBack.onFailure("获取数据失败");
+            }
+
+            @Override
+            public void onCancelled(CancelledException cex) {
+
+            }
+
+            @Override
+            public void onFinished() {
+
+            }
+        });
+    }
 
 
 

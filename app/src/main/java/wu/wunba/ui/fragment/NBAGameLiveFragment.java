@@ -33,7 +33,7 @@ import wu.wunba.BaseFragment;
 import wu.wunba.R;
 import wu.wunba.event.GameDateEvent;
 import wu.wunba.model.NBAMatch;
-import wu.wunba.ui.NBAGameLivePresenter;
+import wu.wunba.ui.presenter.NBAGameLivePresenter;
 import wu.wunba.ui.activity.GameDateSelectActivity;
 import wu.wunba.ui.adapter.NBAGameAdapter;
 import wu.wunba.ui.view.NBAGameLiveView;
@@ -258,7 +258,7 @@ public class NBAGameLiveFragment extends BaseFragment implements NBAGameAdapter.
                 try{
                     Thread.sleep(10000);
                     if(isGameLive){
-                        Logger.e(getCurrentDate() + " ====== " + noCurrentDate);
+//                        Logger.e(getCurrentDate() + " ====== " + noCurrentDate);
                         if(getCurrentDate().equals(noCurrentDate)){//只更新当天的NBA数据
                             gameLivePresenter.getNBAGameLive(getCurrentDate());
                         }

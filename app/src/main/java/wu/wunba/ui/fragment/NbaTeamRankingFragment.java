@@ -23,16 +23,18 @@ import java.util.List;
 
 import wu.wunba.BaseFragment;
 import wu.wunba.R;
+import wu.wunba.app.Config;
 import wu.wunba.model.DecorationNameBean;
 import wu.wunba.model.NBATeamRank;
-import wu.wunba.ui.NBATeamRankPresenter;
+import wu.wunba.ui.activity.NBATeamDetailActivity;
 import wu.wunba.ui.adapter.NBATeamRankAdapter;
+import wu.wunba.ui.presenter.NBATeamRankPresenter;
 import wu.wunba.ui.view.NBATeamRankView;
 import wu.wunba.ui.widget.BasketballLoading;
 import wu.wunba.ui.widget.ItemRecyclerDecoration;
 
-import static wu.wunba.ui.NBATeamRankPresenter.TYPE_RANK_BY_DIVISION;
-import static wu.wunba.ui.NBATeamRankPresenter.TYPE_RANK_BY_UNION;
+import static wu.wunba.ui.presenter.NBATeamRankPresenter.TYPE_RANK_BY_DIVISION;
+import static wu.wunba.ui.presenter.NBATeamRankPresenter.TYPE_RANK_BY_UNION;
 
 /**
  * 描述：球队排名
@@ -146,6 +148,10 @@ public class NbaTeamRankingFragment extends BaseFragment implements NBATeamRankV
     @Override
     public void onItemClick(View v, NBATeamRank nbaTeamRank, int postion) {
         Logger.d("==== " + nbaTeamRank.getName());
+        Bundle bundle = new Bundle();
+        bundle.putString(Config.TEAM_ID,nbaTeamRank.getTeamId());
+        bundle.putString(Config.TEAM_NAME,nbaTeamRank.getName());
+        NBATeamDetailActivity.startAction(mContext,bundle);
     }
 
     @Override

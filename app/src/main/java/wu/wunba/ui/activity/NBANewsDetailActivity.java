@@ -27,7 +27,7 @@ import butterknife.OnClick;
 import wu.wunba.BaseSwipeBackCompatActivity;
 import wu.wunba.R;
 import wu.wunba.app.Config;
-import wu.wunba.ui.NBANewsDetailPresenter;
+import wu.wunba.ui.presenter.NBANewsDetailPresenter;
 import wu.wunba.ui.view.NBANewsDetailView;
 import wu.wunba.ui.widget.BasketballLoading;
 import wu.wunba.utils.DimenUtils;

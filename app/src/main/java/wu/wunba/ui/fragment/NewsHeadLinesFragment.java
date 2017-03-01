@@ -25,7 +25,7 @@ import wu.wunba.BaseFragment;
 import wu.wunba.R;
 import wu.wunba.app.Config;
 import wu.wunba.model.NBANews;
-import wu.wunba.ui.NBANewsPresenter;
+import wu.wunba.ui.presenter.NBANewsPresenter;
 import wu.wunba.ui.activity.NBANewsDetailActivity;
 import wu.wunba.ui.activity.NBAPicturesDetailActivity;
 import wu.wunba.ui.adapter.NBANewsAdapter;

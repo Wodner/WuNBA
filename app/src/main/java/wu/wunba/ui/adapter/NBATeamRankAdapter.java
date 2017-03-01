@@ -1,6 +1,7 @@
 package wu.wunba.ui.adapter;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -60,6 +61,11 @@ public class NBATeamRankAdapter extends RecyclerView.Adapter<NBATeamRankAdapter.
 
     @Override
     public void onBindViewHolder(TeamRankViewHolder holder, final int position) {
+        if(position==7 || position ==22){
+            holder.vLine.setBackgroundColor(Color.RED);
+        }else {
+            holder.vLine.setBackgroundColor(mContext.getResources().getColor(R.color.color_gray_line));
+        }
         holder.tvTeamName.setText(nbaTeamRankList.get(position).getName());
         holder.tvRankNum.setText(nbaTeamRankList.get(position).getRankNum());
         holder.tvTeamWin.setText(nbaTeamRankList.get(position).getWin());
@@ -100,6 +106,9 @@ public class NBATeamRankAdapter extends RecyclerView.Adapter<NBATeamRankAdapter.
         TextView tvTeamWinProbility;
         @Bind(R.id.tv_team_winBehind)
         TextView tvTeamWinBehind;
+        @Bind(R.id.v_line)
+        View vLine;
+
         public TeamRankViewHolder(View itemView) {
             super(itemView);
         }

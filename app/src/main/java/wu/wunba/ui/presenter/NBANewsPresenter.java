@@ -1,4 +1,4 @@
-package wu.wunba.ui;
+package wu.wunba.ui.presenter;
 
 import com.orhanobut.logger.Logger;
 

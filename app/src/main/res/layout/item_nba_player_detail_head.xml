@@ -14,13 +14,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_alignParentBottom="true"
-            android:src="@mipmap/ic_kh"/>
+            android:layout_alignParentBottom="true"/>
         <ImageView
             android:id="@+id/iv_team_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/ic_spurs"
             android:layout_above="@id/iv_player_icon"
             android:layout_marginLeft="15dp"
             android:layout_marginStart="15dp"
@@ -47,7 +45,6 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
                 android:textSize="@dimen/text_small_12"
-                android:text="生日:"
                 />
             <TextView
                 android:id="@+id/tv_birth"
@@ -56,7 +53,6 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
                 android:textSize="@dimen/text_small_12"
-                android:text="1988-11-12"
                 />
             <TextView
                 android:layout_width="wrap_content"
@@ -64,7 +60,6 @@
                 android:textColor="@color/white"
                 android:textSize="@dimen/text_small_12"
                 android:layout_marginLeft="@dimen/text_margin_5"
-                android:text="选秀:"
                 />
             <TextView
                 android:id="@+id/tv_draftyear"
@@ -73,7 +68,6 @@
                 android:textColor="@color/white"
                 android:layout_marginLeft="@dimen/text_margin_3"
                 android:textSize="@dimen/text_small_12"
-                android:text="2008"
                 />
         </LinearLayout>
 
@@ -89,34 +83,28 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
-                android:textSize="@dimen/text_small_12"
-                android:text="雷霆"/>
+                android:textSize="@dimen/text_small_12"/>
             <TextView
                 android:id="@+id/tv_position"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
                 android:layout_marginLeft="@dimen/text_margin_5"
-
-                android:textSize="@dimen/text_small_12"
-                android:text="后卫"/>
+                android:textSize="@dimen/text_small_12"/>
             <TextView
                 android:id="@+id/tv_height"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
                 android:textSize="@dimen/text_small_12"
-                android:layout_marginLeft="@dimen/text_margin_5"
-
-                android:text="190cm"/>
+                android:layout_marginLeft="@dimen/text_margin_5" />
             <TextView
                 android:id="@+id/tv_weight"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
                 android:layout_marginLeft="@dimen/text_margin_5"
-                android:textSize="@dimen/text_small_12"
-                android:text="90.7kg"/>
+                android:textSize="@dimen/text_small_12"/>
         </LinearLayout>
 
         <RelativeLayout
@@ -138,8 +126,7 @@
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@id/tv_jsersey_num"
                 android:textColor="@color/white"
-                android:textSize="@dimen/text_small_18"
-                android:text="拉塞尔-威斯布鲁克斯" />
+                android:textSize="@dimen/text_small_18" />
 
             <TextView
                 android:id="@+id/tv_player_en_name"
@@ -149,8 +136,7 @@
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@id/tv_jsersey_num"
                 android:textColor="@color/white_70"
-                android:textSize="@dimen/text_small_12"
-                android:text="Russell Westbrook" />
+                android:textSize="@dimen/text_small_12" />
 
         </RelativeLayout>
 

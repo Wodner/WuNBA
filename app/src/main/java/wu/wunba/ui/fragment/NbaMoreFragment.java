@@ -16,6 +16,7 @@ import org.xutils.x;
 import wu.wunba.BaseFragment;
 import wu.wunba.R;
 import wu.wunba.ui.activity.NBAImportanceDayActivity;
+import wu.wunba.ui.activity.NBATeamActivity;
 
 /**
  * 描述：
@@ -52,7 +53,7 @@ public class NbaMoreFragment extends BaseFragment {
 
     @Event(type = View.OnClickListener.class,value = R.id.rl_title_team)
     private void teamOnClick(View v){
-        Toast.makeText(getActivity(),"球队",Toast.LENGTH_LONG).show();
+        NBATeamActivity.startAction(getActivity());
     }
 
     @Event(type = View.OnClickListener.class,value = R.id.rl_title_player)

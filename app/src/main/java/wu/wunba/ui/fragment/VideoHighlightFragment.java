@@ -29,7 +29,7 @@ import wu.wunba.R;
 import wu.wunba.model.NBAVideo;
 import wu.wunba.ui.adapter.NBAVideoAdapter;
 import wu.wunba.ui.view.NBAVideoView;
-import wu.wunba.ui.NBAVideoPresenter;
+import wu.wunba.ui.presenter.NBAVideoPresenter;
 
 /**
  * 描述：集锦

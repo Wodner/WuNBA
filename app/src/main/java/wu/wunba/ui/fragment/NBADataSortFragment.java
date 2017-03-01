@@ -22,14 +22,14 @@ import wu.wunba.BaseFragment;
 import wu.wunba.R;
 import wu.wunba.app.Config;
 import wu.wunba.model.NBADataSort;
-import wu.wunba.ui.NBADataSortPresenter;
+import wu.wunba.ui.presenter.NBADataSortPresenter;
 import wu.wunba.ui.activity.NBAPlayerDetialActivity;
 import wu.wunba.ui.adapter.NBADataSortAdapter;
 import wu.wunba.ui.view.NBADataSortView;
 import wu.wunba.ui.widget.BasketballLoading;
 
-import static wu.wunba.ui.NBADataSortPresenter.TYPE_STAT_POINT;
-import static wu.wunba.ui.NBADataSortPresenter.TYPE_TAB_DAY;
+import static wu.wunba.ui.presenter.NBADataSortPresenter.TYPE_STAT_POINT;
+import static wu.wunba.ui.presenter.NBADataSortPresenter.TYPE_TAB_DAY;
 
 /**
  * 描述：数据排行
