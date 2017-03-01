@@ -77,6 +77,13 @@
             android:screenOrientation="portrait"
             />
 
+        <activity android:name=".ui.activity.NBAGameDetailActivity"
+            android:theme="@style/SwipeBackLayoutTheme"
+            android:screenOrientation="portrait"
+            />
+
+
+
 
         <meta-data
             android:name="UMENG_APPKEY"

@@ -116,6 +116,16 @@ public class NBAGameAdapter  extends RecyclerView.Adapter<NBAGameAdapter.NBAGame
                         Xutils3ImageUtils.getImageOptionsDefault());
             }
         }
+        //判断是否设置了监听器
+        if(onRecyclerViewItemClickListener != null){
+            //为ItemView设置监听器
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    onRecyclerViewItemClickListener.onItemClick(v ,gameMatch.get(position),position);
+                }
+            });
+        }
         itemAnimhelper.showItemAnim(holder.linearLayout, position);
 
     }

@@ -1,12 +1,12 @@
 package wu.wunba.ui.adapter;
 
 import android.content.Context;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import org.xutils.view.annotation.ViewInject;
@@ -128,8 +128,8 @@ public class NBANewsAdapter extends RecyclerView.Adapter<NBANewsAdapter.NewsView
 
 
     class NewsViewHolder extends RecyclerView.ViewHolder{
-        @ViewInject(R.id.ll_item_list)
-        LinearLayout linearLayout;
+        @ViewInject(R.id.cardview)
+        CardView linearLayout;
         @ViewInject(R.id.iv_new_cover)
         ImageView ivNewCover;
         @ViewInject(R.id.videoplayer)

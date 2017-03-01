@@ -15,4 +15,8 @@ public class Config {
 
     public static final String TEAM_ID = "teamid";
     public static final String TEAM_NAME = "teamname";
+
+    public static final String MATCH_PERIOD = "matchperiod";
+    public static final String GAME_MID = "gameid";
+    public static final String GAME_VS = "gamevs";
 }

@@ -31,11 +31,13 @@ import java.util.Date;
 
 import wu.wunba.BaseFragment;
 import wu.wunba.R;
+import wu.wunba.app.Config;
 import wu.wunba.event.GameDateEvent;
 import wu.wunba.model.NBAMatch;
-import wu.wunba.ui.presenter.NBAGameLivePresenter;
 import wu.wunba.ui.activity.GameDateSelectActivity;
+import wu.wunba.ui.activity.NBAGameDetailActivity;
 import wu.wunba.ui.adapter.NBAGameAdapter;
+import wu.wunba.ui.presenter.NBAGameLivePresenter;
 import wu.wunba.ui.view.NBAGameLiveView;
 import wu.wunba.ui.widget.BasketballLoading;
 import wu.wunba.ui.widget.SpaceItemDecoration;
@@ -209,7 +211,11 @@ public class NBAGameLiveFragment extends BaseFragment implements NBAGameAdapter.
 
     @Override
     public void onItemClick(View v, NBAMatch.DataBean.MatchesBean matchesBean, int postion) {
-
+        Bundle bundle = new Bundle();
+        bundle.putString(Config.GAME_MID,matchesBean.getMatchInfo().getMid());
+        bundle.putString(Config.MATCH_PERIOD,matchesBean.getMatchInfo().getMatchPeriod());
+        bundle.putString(Config.GAME_VS,matchesBean.getMatchInfo().getLeftName() + "@" + matchesBean.getMatchInfo().getRightName());
+        NBAGameDetailActivity.startAction(mContext,bundle);
     }
 
 
@@ -258,7 +264,6 @@ public class NBAGameLiveFragment extends BaseFragment implements NBAGameAdapter.
                 try{
                     Thread.sleep(10000);
                     if(isGameLive){
-//                        Logger.e(getCurrentDate() + " ====== " + noCurrentDate);
                         if(getCurrentDate().equals(noCurrentDate)){//只更新当天的NBA数据
                             gameLivePresenter.getNBAGameLive(getCurrentDate());
                         }

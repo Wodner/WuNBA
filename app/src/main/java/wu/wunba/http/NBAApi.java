@@ -238,6 +238,14 @@ public class NBAApi {
     }
 
 
+    /**
+     * @param mid
+     * @return
+     */
+    public static String getNBAGameBaseInfo(String mid){
+        return BaseUrl + "match/baseInfo?mid=" + mid + DefaulttUrl;
+    }
+
 
 
 

@@ -45,6 +45,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
                 android:textSize="@dimen/text_small_12"
+                android:text="生日:"
                 />
             <TextView
                 android:id="@+id/tv_birth"
@@ -60,6 +61,7 @@
                 android:textColor="@color/white"
                 android:textSize="@dimen/text_small_12"
                 android:layout_marginLeft="@dimen/text_margin_5"
+                android:text="选秀:"
                 />
             <TextView
                 android:id="@+id/tv_draftyear"
@@ -117,8 +119,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
-                android:textSize="@dimen/text_small_18"
-                android:text="0"/>
+                android:textSize="@dimen/text_small_18"/>
             <TextView
                 android:id="@+id/tv_player_name"
                 android:layout_marginLeft="@dimen/text_margin_5"

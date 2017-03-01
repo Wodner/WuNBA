@@ -1,135 +1,142 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/ll_item_list"
-    android:orientation="vertical"
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/white">
+    android:id="@+id/cardview"
+    app:cardCornerRadius="0dp"
+    android:layout_marginBottom="@dimen/px_6"
+    app:cardElevation="@dimen/px_10">
 
-    <RelativeLayout
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <!--<video-->
-        <fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard
-            android:id="@+id/videoplayer"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/px_400" />
+            android:layout_height="wrap_content">
 
-        <LinearLayout
+            <!--<video-->
+            <fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard
+                android:id="@+id/videoplayer"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/px_360" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/text_margin_3"
+                android:paddingBottom="@dimen/text_margin_3"
+                android:paddingLeft="@dimen/text_margin_5"
+                android:paddingRight="@dimen/text_margin_5"
+                android:background="@drawable/shape_tran_black_bg"
+                android:visibility="visible">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@mipmap/latest_head_icon_time"/>
+                <TextView
+                    android:id="@+id/tv_video_duration"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/text_margin_3"
+                    android:layout_gravity="center"
+                    android:textColor="@color/white"
+                    android:text="08:00"/>
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_video_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_black_80"
+            android:paddingTop="@dimen/text_margin_5"
+            android:paddingLeft="@dimen/text_margin"
+            android:paddingBottom="@dimen/text_margin_5"
+            android:textSize="@dimen/text_small_15"
+            android:text="2016-2017赛季马刺夺得总冠军"/>
+
+
+        <RelativeLayout
+            android:layout_marginLeft="@dimen/text_margin"
+            android:layout_marginRight="@dimen/text_margin"
+            android:layout_marginBottom="@dimen/text_margin_5"
             android:orientation="horizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingTop="@dimen/text_margin_3"
-            android:paddingBottom="@dimen/text_margin_3"
-            android:paddingLeft="@dimen/text_margin_5"
-            android:paddingRight="@dimen/text_margin_5"
-            android:background="@drawable/shape_tran_black_bg"
-            android:visibility="visible">
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:src="@mipmap/latest_head_icon_time"/>
+            android:layout_gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
             <TextView
-                android:id="@+id/tv_video_duration"
+                android:id="@+id/tv_pub_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/text_margin_3"
-                android:layout_gravity="center"
-                android:textColor="@color/white"
-                android:text="08:00"/>
-        </LinearLayout>
+                android:layout_centerVertical="true"
+                android:textSize="@dimen/text_small_12"
+                android:textColor="@color/text_content_gray"
+                android:text="02-18 11:53"/>
+            <TextView
+                android:id="@+id/tv_share"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_small_12"
+                android:textColor="@color/text_content_gray"
+                android:text="分享"/>
 
-    </RelativeLayout>
-
-    <TextView
-        android:id="@+id/tv_video_title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/text_black_80"
-        android:paddingTop="@dimen/text_margin_5"
-        android:paddingLeft="@dimen/text_margin"
-        android:paddingBottom="@dimen/text_margin_5"
-        android:textSize="@dimen/text_small_15"
-        android:text="2016-2017赛季马刺夺得总冠军"/>
-
-
-    <RelativeLayout
-        android:layout_marginLeft="@dimen/text_margin"
-        android:layout_marginRight="@dimen/text_margin"
-        android:layout_marginBottom="@dimen/text_margin_5"
-        android:orientation="horizontal"
-        android:layout_gravity="center_vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <TextView
-            android:id="@+id/tv_pub_time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:textSize="@dimen/text_small_12"
-            android:textColor="@color/text_content_gray"
-            android:text="02-18 11:53"/>
-        <TextView
-            android:id="@+id/tv_share"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="@dimen/text_small_12"
-            android:textColor="@color/text_content_gray"
-            android:text="分享"/>
-
-        <ImageView
-            android:id="@+id/iv_share"
-            android:layout_toLeftOf="@id/tv_share"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="@dimen/text_margin_5"
-            android:src="@drawable/selector_share_bg"/>
+            <ImageView
+                android:id="@+id/iv_share"
+                android:layout_toLeftOf="@id/tv_share"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/text_margin_5"
+                android:src="@drawable/selector_share_bg"/>
 
 
-        <TextView
-            android:id="@+id/tv_comm_num"
-            android:layout_toLeftOf="@id/iv_share"
-            android:layout_centerVertical="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="@dimen/text_margin"
-            android:textSize="@dimen/text_small_12"
-            android:textColor="@color/text_content_gray"
-            android:text="21"/>
-        <ImageView
-            android:id="@+id/iv_comm"
-            android:layout_toLeftOf="@id/tv_comm_num"
-            android:layout_width="18dp"
-            android:layout_height="18dp"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="@dimen/text_margin_5"
-            android:src="@drawable/selector_comment_bg"/>
+            <TextView
+                android:id="@+id/tv_comm_num"
+                android:layout_toLeftOf="@id/iv_share"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/text_margin"
+                android:textSize="@dimen/text_small_12"
+                android:textColor="@color/text_content_gray"
+                android:text="21"/>
+            <ImageView
+                android:id="@+id/iv_comm"
+                android:layout_toLeftOf="@id/tv_comm_num"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/text_margin_5"
+                android:src="@drawable/selector_comment_bg"/>
 
 
-        <TextView
-            android:id="@+id/tv_fav_num"
-            android:layout_toLeftOf="@id/iv_comm"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="@dimen/text_margin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="@dimen/text_small_12"
-            android:textColor="@color/text_content_gray"
-            android:text="99"/>
-        <ImageView
-            android:id="@+id/iv_fav"
-            android:layout_marginRight="@dimen/text_margin_5"
-            android:layout_centerVertical="true"
-            android:layout_toLeftOf="@id/tv_fav_num"
-            android:layout_width="18dp"
-            android:layout_height="18dp"
-            android:src="@drawable/latest_fav_nofocus_normal"/>
-    </RelativeLayout>
+            <TextView
+                android:id="@+id/tv_fav_num"
+                android:layout_toLeftOf="@id/iv_comm"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/text_margin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_small_12"
+                android:textColor="@color/text_content_gray"
+                android:text="99"/>
+            <ImageView
+                android:id="@+id/iv_fav"
+                android:layout_marginRight="@dimen/text_margin_5"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@id/tv_fav_num"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:src="@drawable/latest_fav_nofocus_normal"/>
+        </RelativeLayout>
+    </LinearLayout>
 
-
-</LinearLayout>
+</android.support.v7.widget.CardView>
