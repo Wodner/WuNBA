@@ -92,6 +92,10 @@ public class NBADataSortPresenter implements Presenter {
         dataSortList.clear();
         if(statType==TYPE_STAT_POINT){
             ModelNBADataPoint point = JsonParser.parseWithGson(ModelNBADataPoint.class,result);
+            if (point.getData().getPoint().size()==0){
+                nbaDataSortView.showError("-1");
+                return;
+            }
             for(int i=0;i<point.getData().getPoint().size();i++ ){
                 NBADataSort nbaDataSort = new NBADataSort();
                 nbaDataSort.setJerseyNum(point.getData().getPoint().get(i).getJerseyNum());
@@ -110,6 +114,10 @@ public class NBADataSortPresenter implements Presenter {
             }
         }else if(statType==TYPE_STAT_REBOUND){
             ModelNBADataRebound rebound = JsonParser.parseWithGson(ModelNBADataRebound.class,result);
+            if (rebound.getData().getRebound().size()==0){
+                nbaDataSortView.showError("-1");
+                return;
+            }
             for(int i=0;i<rebound.getData().getRebound().size();i++ ){
                 NBADataSort nbaDataSort = new NBADataSort();
                 nbaDataSort.setJerseyNum(rebound.getData().getRebound().get(i).getJerseyNum());
@@ -128,6 +136,10 @@ public class NBADataSortPresenter implements Presenter {
             }
         }else if(statType==TYPE_STAT_ASSIST){
             ModelNBADataAssist assist = JsonParser.parseWithGson(ModelNBADataAssist.class,result);
+            if (assist.getData().getAssist().size()==0){
+                nbaDataSortView.showError("-1");
+                return;
+            }
             for(int i=0;i<assist.getData().getAssist().size();i++ ){
                 NBADataSort nbaDataSort = new NBADataSort();
                 nbaDataSort.setJerseyNum(assist.getData().getAssist().get(i).getJerseyNum());
@@ -146,6 +158,10 @@ public class NBADataSortPresenter implements Presenter {
             }
         }else if(statType==TYPE_STAT_BLOCK){
             ModelNBADataBlock block = JsonParser.parseWithGson(ModelNBADataBlock.class,result);
+            if (block.getData().getBlock().size()==0){
+                nbaDataSortView.showError("-1");
+                return;
+            }
             for(int i=0;i<block.getData().getBlock().size();i++ ) {
                 NBADataSort nbaDataSort = new NBADataSort();
                 nbaDataSort.setJerseyNum(block.getData().getBlock().get(i).getJerseyNum());
@@ -163,23 +179,27 @@ public class NBADataSortPresenter implements Presenter {
                 dataSortList.add(nbaDataSort);
             }
         }else if(statType==TYPE_STAT_STEAL){
-                ModelNBADataSteal steal = JsonParser.parseWithGson(ModelNBADataSteal.class,result);
-                for(int i=0;i<steal.getData().getSteal().size();i++ ) {
-                    NBADataSort nbaDataSort = new NBADataSort();
-                    nbaDataSort.setJerseyNum(steal.getData().getSteal().get(i).getJerseyNum());
-                    nbaDataSort.setPlayerEnName(steal.getData().getSteal().get(i).getPlayerEnName());
-                    nbaDataSort.setPlayerIcon(steal.getData().getSteal().get(i).getPlayerIcon());
-                    nbaDataSort.setPlayerId(steal.getData().getSteal().get(i).getPlayerId());
-                    nbaDataSort.setPlayerName(steal.getData().getSteal().get(i).getPlayerName());
-                    nbaDataSort.setPlayerUrl(steal.getData().getSteal().get(i).getPlayerUrl());
-                    nbaDataSort.setSerial(steal.getData().getSteal().get(i).getSerial());
-                    nbaDataSort.setTeamIcon(steal.getData().getSteal().get(i).getTeamIcon());
-                    nbaDataSort.setTeamId(steal.getData().getSteal().get(i).getTeamId());
-                    nbaDataSort.setTeamName(steal.getData().getSteal().get(i).getTeamName());
-                    nbaDataSort.setTeamUrl(steal.getData().getSteal().get(i).getTeamUrl());
-                    nbaDataSort.setValue(steal.getData().getSteal().get(i).getValue());
-                    dataSortList.add(nbaDataSort);
-                }
+            ModelNBADataSteal steal = JsonParser.parseWithGson(ModelNBADataSteal.class,result);
+            if (steal.getData().getSteal().size()==0){
+                nbaDataSortView.showError("-1");
+                return;
+            }
+            for(int i=0;i<steal.getData().getSteal().size();i++ ) {
+                NBADataSort nbaDataSort = new NBADataSort();
+                nbaDataSort.setJerseyNum(steal.getData().getSteal().get(i).getJerseyNum());
+                nbaDataSort.setPlayerEnName(steal.getData().getSteal().get(i).getPlayerEnName());
+                nbaDataSort.setPlayerIcon(steal.getData().getSteal().get(i).getPlayerIcon());
+                nbaDataSort.setPlayerId(steal.getData().getSteal().get(i).getPlayerId());
+                nbaDataSort.setPlayerName(steal.getData().getSteal().get(i).getPlayerName());
+                nbaDataSort.setPlayerUrl(steal.getData().getSteal().get(i).getPlayerUrl());
+                nbaDataSort.setSerial(steal.getData().getSteal().get(i).getSerial());
+                nbaDataSort.setTeamIcon(steal.getData().getSteal().get(i).getTeamIcon());
+                nbaDataSort.setTeamId(steal.getData().getSteal().get(i).getTeamId());
+                nbaDataSort.setTeamName(steal.getData().getSteal().get(i).getTeamName());
+                nbaDataSort.setTeamUrl(steal.getData().getSteal().get(i).getTeamUrl());
+                nbaDataSort.setValue(steal.getData().getSteal().get(i).getValue());
+                dataSortList.add(nbaDataSort);
+            }
         }
         nbaDataSortView.showDataSort(dataSortList);
         nbaDataSortView.hideLoading(true);

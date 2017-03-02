@@ -8,11 +8,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.orhanobut.logger.Logger;
 
 import org.xutils.view.annotation.ContentView;
+import org.xutils.view.annotation.Event;
 import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
 
@@ -22,9 +25,9 @@ import wu.wunba.BaseFragment;
 import wu.wunba.R;
 import wu.wunba.app.Config;
 import wu.wunba.model.NBADataSort;
-import wu.wunba.ui.presenter.NBADataSortPresenter;
 import wu.wunba.ui.activity.NBAPlayerDetialActivity;
 import wu.wunba.ui.adapter.NBADataSortAdapter;
+import wu.wunba.ui.presenter.NBADataSortPresenter;
 import wu.wunba.ui.view.NBADataSortView;
 import wu.wunba.ui.widget.BasketballLoading;
 
@@ -46,6 +49,14 @@ public class NBADataSortFragment extends BaseFragment implements NBADataSortView
     Spinner spinnerTab;
     @ViewInject(R.id.spinner_stat)
     Spinner spinnerStat;
+
+    @ViewInject(R.id.iv_no_data)
+    ImageView ivNoData;
+    @ViewInject(R.id.iv_network_error)
+    ImageView ivNetworkError;
+
+
+
 
     private int CURRENT_TAB_TYPE = TYPE_TAB_DAY;
     private int CURRENT_STAT_TYPE= TYPE_STAT_POINT;
@@ -108,6 +119,11 @@ public class NBADataSortFragment extends BaseFragment implements NBADataSortView
         NBAPlayerDetialActivity.startAction(getActivity(),bundle);
     }
 
+    @Event(type = View.OnClickListener.class,value = R.id.iv_network_error)
+    private void requestAggin(View v){
+        dataSortPresenter.getNBADataSort(CURRENT_TAB_TYPE,CURRENT_STAT_TYPE);
+    }
+
     @Override
     public void showLoading(boolean isFirst) {
         ballLaodingShow(BasketballLoading.TYPE_QUAN);
@@ -115,11 +131,30 @@ public class NBADataSortFragment extends BaseFragment implements NBADataSortView
 
     @Override
     public void hideLoading(boolean isFirst) {
+        ivNoData.setVisibility(View.GONE);
+        ivNetworkError.setVisibility(View.GONE);
+        recyclerView.setVisibility(View.VISIBLE);
         ballLaodingDismiss();
     }
 
     @Override
     public void showError(String msg) {
+        if (msg.equals("0")) {
+            ivNetworkError.setVisibility(View.VISIBLE);
+            Toast.makeText(getActivity(), "网络连接异常", Toast.LENGTH_SHORT).show();
+            recyclerView.setVisibility(View.GONE);
+        }else{
+            ivNetworkError.setVisibility(View.GONE);
+            recyclerView.setVisibility(View.VISIBLE);
+        }
+        if(msg.equals("-1")){
+            ivNoData.setVisibility(View.VISIBLE);
+            recyclerView.setVisibility(View.GONE);
+        }else {
+            ivNoData.setVisibility(View.GONE);
+            recyclerView.setVisibility(View.VISIBLE);
+        }
+
         ballLaodingDismiss();
     }
 

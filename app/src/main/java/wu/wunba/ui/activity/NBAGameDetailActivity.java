@@ -13,8 +13,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.orhanobut.logger.Logger;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -159,8 +157,10 @@ public class NBAGameDetailActivity extends BaseSwipeBackCompatActivity implement
         tvGameType.setText(gameBaseInfo.getData().getDesc());
         tvLeftTeamGoal.setText(gameBaseInfo.getData().getLeftGoal());
         tvRightTeamGoal.setText(gameBaseInfo.getData().getRightGoal());
-        Xutils3ImageUtils.display(ivLeftTeamIcon,gameBaseInfo.getData().getLeftBadge(),Xutils3ImageUtils.getImageOptionsDefault());
-        Xutils3ImageUtils.display(ivRightTeamIcon,gameBaseInfo.getData().getRightBadge(),Xutils3ImageUtils.getImageOptionsDefault());
+        Xutils3ImageUtils.display(ivLeftTeamIcon,gameBaseInfo.getData().getLeftBadge(),
+                Xutils3ImageUtils.getImageOptionsDefault(R.mipmap.latest_pic_default,R.mipmap.latest_pic_default));
+        Xutils3ImageUtils.display(ivRightTeamIcon,gameBaseInfo.getData().getRightBadge(),
+                Xutils3ImageUtils.getImageOptionsDefault(R.mipmap.latest_pic_default,R.mipmap.latest_pic_default));
         String mPeriod =gameBaseInfo.getData().getMatchPeriod();
         currentMatchPeriod = mPeriod;
         if(currentMatchPeriod.equals("0")){//未开始
@@ -202,7 +202,6 @@ public class NBAGameDetailActivity extends BaseSwipeBackCompatActivity implement
             while (true){
                 try{
                     Thread.sleep(10000);
-                    Logger.d("定时器 ： " + isGameLive);
                     if(isGameLive){
                         gameDetailPresenter.getNBAGameInfo(gameMid);
                     }

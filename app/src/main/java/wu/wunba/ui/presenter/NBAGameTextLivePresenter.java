@@ -66,6 +66,10 @@ public class NBAGameTextLivePresenter implements Presenter {
                 public void onSuccess(String s) {
                     gameTextLiveIndex = JsonParser.parseWithGson(NBAGameTextLiveIndex.class,s);
                     lastIdNum = gameTextLiveIndex.getData().getIndex().size();
+                    if(lastIdNum==0){
+                        gameTextLiveView.showError("-1");
+                        return;
+                    }
                     getNBAGameTextLiveInfo(itemNum,mid);
                 }
 
@@ -141,10 +145,10 @@ public class NBAGameTextLivePresenter implements Presenter {
      */
     private void getNBAGameTextLiveInfo(int itemNum,String mid){
         if(itemNum>0){
-            if(itemNum*PAGER_NUM>gameTextLiveIndex.getData().getIndex().size()){
-                gameTextLiveView.showError("-1");
-                return;
-            }else{
+//            if(itemNum*PAGER_NUM>gameTextLiveIndex.getData().getIndex().size()){
+//                gameTextLiveView.showError("-1");
+//                return;
+//            }else{
                 NBAApiRequest.getNBAGameTextLiveInfo(mid, getRequestArticleIds(itemNum), new RequestCallBack<String>() {
                     @Override
                     public void onSuccess(String s) {
@@ -156,7 +160,7 @@ public class NBAGameTextLivePresenter implements Presenter {
                         gameTextLiveView.hideLoading(true);
                     }
                 });
-            }
+//            }
         }else{
             return;
         }
