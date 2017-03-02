@@ -889,4 +889,74 @@ public class NBAApiRequest {
 
 
 
+
+    /**
+     * 获取图文直播的ids
+     * @param requestCallBack
+     */
+    public static void getNBAGameTextLiveIndex(String mid,final RequestCallBack<String> requestCallBack){
+        RequestParams params = new RequestParams(NBAApi.getNBAGameLiveTextIndex(mid));
+        x.http().get(params, new Callback.CommonCallback<String>() {
+            @Override
+            public void onSuccess(String result) {
+                if (result != null && !TextUtils.isEmpty(result)) {
+                    requestCallBack.onSuccess(result);
+                }else {
+                    requestCallBack.onFailure("获取数据失败");
+                }
+            }
+
+            @Override
+            public void onError(Throwable ex, boolean isOnCallback) {
+                requestCallBack.onFailure("获取数据失败");
+            }
+
+            @Override
+            public void onCancelled(CancelledException cex) {
+
+            }
+
+            @Override
+            public void onFinished() {
+
+            }
+        });
+    }
+
+
+    /**
+     * 获取图文直播的内容
+     * @param requestCallBack
+     */
+    public static void getNBAGameTextLiveInfo(String mid,String ids,final RequestCallBack<String> requestCallBack){
+        RequestParams params = new RequestParams(NBAApi.getNBAGameTextLiveInfo(mid,ids));
+        x.http().get(params, new Callback.CommonCallback<String>() {
+            @Override
+            public void onSuccess(String result) {
+                if (result != null && !TextUtils.isEmpty(result)) {
+                    requestCallBack.onSuccess(result);
+                }else {
+                    requestCallBack.onFailure("获取数据失败");
+                }
+            }
+
+            @Override
+            public void onError(Throwable ex, boolean isOnCallback) {
+                requestCallBack.onFailure("获取数据失败");
+            }
+
+            @Override
+            public void onCancelled(CancelledException cex) {
+
+            }
+
+            @Override
+            public void onFinished() {
+
+            }
+        });
+    }
+
+
+
 }

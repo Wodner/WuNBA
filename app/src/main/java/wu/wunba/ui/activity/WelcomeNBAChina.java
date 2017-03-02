@@ -78,7 +78,7 @@ public class WelcomeNBAChina extends BaseActivity implements EasyPermissions.Per
                 //启动主Activity后销毁自身
                 finish();
             }
-        }, 2000);
+        }, 1000);
     }
 
 

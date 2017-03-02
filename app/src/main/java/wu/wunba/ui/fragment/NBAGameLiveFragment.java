@@ -100,11 +100,18 @@ public class NBAGameLiveFragment extends BaseFragment implements NBAGameAdapter.
         this.mContext = getActivity();
         initCalendar();
         initRecyclerView();
-        EventBus.getDefault().register(this);
+        if(!EventBus.getDefault().isRegistered(this))
+            EventBus.getDefault().register(this);
         updataGameDataThread = new UpdataGameDataThread();
         gameLivePresenter = new NBAGameLivePresenter(mContext,this);
         gameLivePresenter.initialized(0);
         updataGameDataThread.start();
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        EventBus.getDefault().unregister(this);
     }
 
     private void initCalendar() {

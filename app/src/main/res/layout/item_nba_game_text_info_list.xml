@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <LinearLayout
+        android:paddingTop="@dimen/text_margin_5"
+        android:paddingBottom="@dimen/text_middle_38"
+        android:orientation="vertical"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/tv_quart"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:textColor="@color/black_80"
+            android:text="第一节"/>
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_margin="@dimen/text_margin_5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:textColor="@color/black_80"
+            android:text="08:23"/>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+        <View
+            android:layout_width="@dimen/px_2"
+            android:layout_centerHorizontal="true"
+            android:layout_height="match_parent"
+            android:background="@color/color_gray_line"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@mipmap/match_emotion_tip_select"/>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:paddingTop="@dimen/text_margin_5"
+        android:paddingBottom="@dimen/text_middle_38"
+        android:orientation="vertical"
+        android:layout_width="0dp"
+        android:layout_weight="4"
+        android:layout_height="match_parent">
+
+
+        <LinearLayout
+            android:paddingLeft="@dimen/text_margin_8"
+            android:paddingRight="@dimen/text_margin_8"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_team_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black_80"
+                android:text="马刺"/>
+            <TextView
+                android:id="@+id/tv_plus"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/text_margin_16"
+                android:textColor="@color/red"
+                android:text="+2"/>
+            <TextView
+                android:id="@+id/tv_points"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:textColor="@color/red"
+                android:text="100:79"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_content"
+            android:padding="@dimen/text_margin_8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black_80"
+            android:text="卡哇伊后仰跳投命中"/>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -247,6 +247,23 @@ public class NBAApi {
     }
 
 
+    /**
+     * @param mid 获取图文直播的 index
+     * @return
+     */
+    public static String getNBAGameLiveTextIndex(String mid){
+        return  BaseUrl + "match/textLiveIndex?mid=" + mid + DefaulttUrl;
+    }
+
+
+    /**
+     * @param mid 更加ids 获取图文直播信息
+     * @param ids
+     * @return
+     */
+    public static String getNBAGameTextLiveInfo(String mid,String ids){
+        return  BaseUrl + "match/textLiveDetail?mid=" + mid + "&ids=" + ids + DefaulttUrl;
+    }
 
 
 }

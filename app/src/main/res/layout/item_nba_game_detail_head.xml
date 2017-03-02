@@ -1,15 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@mipmap/match_pic_bottom_head_figure_720">
+    android:layout_height="wrap_content">
 
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        app:layout_scrollFlags="scroll|enterAlways"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        android:background="@android:color/transparent"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" >
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_middle_21"
+            android:gravity="center"
+            android:text=""/>
+    </android.support.v7.widget.Toolbar>
+    <TextView
+        android:id="@+id/tv_game_state"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/gray_cc"
+        android:layout_gravity="center_horizontal"
+        android:textSize="@dimen/text_small_12"/>
     <RelativeLayout
         android:id="@+id/rl_2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
-        android:layout_below="@+id/rl_1"
+        android:layout_marginBottom="@dimen/text_margin_5"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
         <TextView
@@ -24,7 +48,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toLeftOf="@id/tv_game_type"
-            android:layout_marginRight="@dimen/px_48"
+            android:layout_marginRight="@dimen/px_36"
             android:layout_centerVertical="true"
             android:textColor="@color/white"
             android:textSize="@dimen/text_middle_22"/>
@@ -33,7 +57,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@id/tv_game_type"
-            android:layout_marginLeft="@dimen/px_48"
+            android:layout_marginLeft="@dimen/px_36"
             android:layout_centerVertical="true"
             android:textColor="@color/white"
             android:textSize="@dimen/text_middle_22"/>
@@ -54,51 +78,51 @@
 
     </RelativeLayout>
 
-    <RelativeLayout
-        android:id="@+id/rl_1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="71dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
-        <TextView
-            android:id="@+id/tv_game_state"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/gray_cc"
-            android:layout_centerInParent="true"
-            android:textSize="@dimen/text_small_12"/>
+    <!--<RelativeLayout-->
+        <!--android:id="@+id/rl_1"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginTop="71dp"-->
+        <!--android:layout_alignParentTop="true"-->
+        <!--android:layout_alignParentLeft="true"-->
+        <!--android:layout_alignParentStart="true">-->
+        <!--<TextView-->
+            <!--android:id="@+id/tv_game_state"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:textColor="@color/gray_cc"-->
+            <!--android:layout_centerInParent="true"-->
+            <!--android:textSize="@dimen/text_small_12"/>-->
 
-        <TextView
-            android:id="@+id/tv_right_team_record"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/tv_game_state"
-            android:layout_marginLeft="@dimen/px_38"
-            android:layout_centerVertical="true"
-            android:textSize="@dimen/text_small_12"
-            android:textColor="@color/gray_cc"/>
+        <!--<TextView-->
+            <!--android:id="@+id/tv_right_team_record"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_toRightOf="@id/tv_game_state"-->
+            <!--android:layout_marginLeft="@dimen/px_38"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:textSize="@dimen/text_small_12"-->
+            <!--android:textColor="@color/gray_cc"/>-->
 
-        <TextView
-            android:id="@+id/tv_left_team_record"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:textSize="@dimen/text_small_12"
-            android:layout_toLeftOf="@id/tv_game_state"
-            android:layout_marginRight="@dimen/px_38"
-            android:textColor="@color/gray_cc"/>
-    </RelativeLayout>
+        <!--<TextView-->
+            <!--android:id="@+id/tv_left_team_record"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:textSize="@dimen/text_small_12"-->
+            <!--android:layout_toLeftOf="@id/tv_game_state"-->
+            <!--android:layout_marginRight="@dimen/px_38"-->
+            <!--android:textColor="@color/gray_cc"/>-->
+    <!--</RelativeLayout>-->
 
-    <TextView
-        android:id="@+id/tv_nba_game_time_place"
-        android:layout_below="@id/rl_2"
-        android:layout_marginTop="@dimen/px_18"
-        android:layout_centerHorizontal="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/gray_cc"/>
+    <!--<TextView-->
+        <!--android:id="@+id/tv_nba_game_time_place"-->
+        <!--android:layout_below="@id/rl_2"-->
+        <!--android:layout_marginTop="@dimen/px_18"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:textColor="@color/gray_cc"/>-->
 
 
-</RelativeLayout>
+</LinearLayout>
