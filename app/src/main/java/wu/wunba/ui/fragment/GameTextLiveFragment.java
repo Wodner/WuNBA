@@ -1,6 +1,7 @@
 package wu.wunba.ui.fragment;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -47,9 +48,10 @@ public class GameTextLiveFragment extends BaseFragment implements NBAGameTextLiv
     @ViewInject(R.id.iv_network_error)
     ImageView ivNetworkError;
 
-
     public static final String BUNDLE_MID = "mid";
     public static final String MATCHPERIOD = "matchPeriod";
+
+    private Handler mHandler = new Handler();
 
     private String mid;
     private String matchPeriod;
@@ -57,7 +59,6 @@ public class GameTextLiveFragment extends BaseFragment implements NBAGameTextLiv
     private NBAGameTextInfoAdapter gameTextInfoAdapter;
     private NBAGameTextLivePresenter gameTextLivePresenter;
     private LRecyclerViewAdapter mLRecyclerViewAdapter;
-    private UpdataGameDataThread updataGameDataThread;
     private List<NBAGameTextLiveItem> infoList = new ArrayList<>();
 
     public static Fragment getInstance(String mid, String matchPeriod) {
@@ -73,7 +74,6 @@ public class GameTextLiveFragment extends BaseFragment implements NBAGameTextLiv
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        ButterKnife.bind(this, x.view().inject(this, inflater, container));
         return x.view().inject(this, inflater, container);
     }
 
@@ -85,8 +85,6 @@ public class GameTextLiveFragment extends BaseFragment implements NBAGameTextLiv
         gameTextLivePresenter = new NBAGameTextLivePresenter(getActivity(), this);
         gameTextLivePresenter.getNBAGameTextLiveIndex(TEXTS_PAGER_NUM, mid);
         initXRecyclerView();
-        updataGameDataThread = new UpdataGameDataThread();
-        updataGameDataThread.start();
     }
 
 
@@ -156,9 +154,15 @@ public class GameTextLiveFragment extends BaseFragment implements NBAGameTextLiv
 
 
     @Override
-    public void showGameTextLive(List<NBAGameTextLiveItem> nbaGameTextLiveItemList) {
+    public void showGameTextLive(boolean isUpdata,List<NBAGameTextLiveItem> nbaGameTextLiveItemList) {
         recyclerview.refreshComplete(10);
-        infoList.addAll(nbaGameTextLiveItemList);
+        if(isUpdata){
+            for (int i=0;i<nbaGameTextLiveItemList.size();i++){
+                infoList.set(i,nbaGameTextLiveItemList.get(i));
+            }
+        }else {
+            infoList.addAll(nbaGameTextLiveItemList);
+        }
         gameTextInfoAdapter.setData(infoList);
         mLRecyclerViewAdapter.notifyDataSetChanged();
     }
@@ -167,28 +171,28 @@ public class GameTextLiveFragment extends BaseFragment implements NBAGameTextLiv
     public void onDestroyView() {
         super.onDestroyView();
         ButterKnife.unbind(this);
-        if (updataGameDataThread != null && updataGameDataThread.isAlive()) {
-            updataGameDataThread.interrupt();
-        }
     }
 
-    /**
-     * 每隔十秒更新数据
-     */
-    private class UpdataGameDataThread extends Thread {
+    @Override
+    public void onStop() {
+        super.onStop();
+        mHandler.removeCallbacks(mTasks);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        mHandler.postDelayed(mTasks,UPDATA_GAME_DATA_TIME);
+    }
+
+    private final int UPDATA_GAME_DATA_TIME = 3000;
+    private Runnable mTasks = new Runnable() {
         @Override
         public void run() {
-            super.run();
-            while (true) {
-                try {
-                    Thread.sleep(10000);
-                    if (matchPeriod.equals("1")) {
-                        gameTextLivePresenter.getGameTextLiveIndexTimer(mid);
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+            if (matchPeriod.equals("1")) {
+                gameTextLivePresenter.getGameTextLiveIndexTimer(mid);
             }
+            mHandler.postDelayed(mTasks,UPDATA_GAME_DATA_TIME);
         }
-    }
+    };
 }

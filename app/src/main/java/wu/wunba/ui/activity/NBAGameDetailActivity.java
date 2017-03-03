@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
@@ -17,6 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.Bind;
+import butterknife.OnClick;
 import wu.wunba.BaseSwipeBackCompatActivity;
 import wu.wunba.R;
 import wu.wunba.app.Config;
@@ -38,17 +40,15 @@ import wu.wunba.utils.Xutils3ImageUtils;
  * 邮箱：wuwende@live.cn
  */
 
-public class NBAGameDetailActivity extends BaseSwipeBackCompatActivity implements NBAGameBaseInfoView{
+public class NBAGameDetailActivity extends BaseSwipeBackCompatActivity implements NBAGameBaseInfoView {
 
 
     @Bind(R.id.tv_title)
     TextView tvTitle;
     @Bind(R.id.toolbar)
     Toolbar toolbar;
-
     @Bind(R.id.tv_game_type)
     TextView tvGameType;
-
     @Bind(R.id.tv_left_team_goal)
     TextView tvLeftTeamGoal;
     @Bind(R.id.tv_right_team_goal)
@@ -59,14 +59,6 @@ public class NBAGameDetailActivity extends BaseSwipeBackCompatActivity implement
     ImageView ivRightTeamIcon;
     @Bind(R.id.tv_game_state)
     TextView tvGameState;
-//    @Bind(R.id.tv_right_team_record)
-//    TextView tvRightTeamRecord;
-//    @Bind(R.id.tv_left_team_record)
-//    TextView tvLeftTeamRecord;
-
-//    @Bind(R.id.tv_nba_game_time_place)
-//    TextView tvNbaGameTimePlace;
-
     @Bind(R.id.tabs)
     TabLayout tabLayout;
     @Bind(R.id.viewpager)
@@ -76,15 +68,18 @@ public class NBAGameDetailActivity extends BaseSwipeBackCompatActivity implement
     private static String gameMid;
     private static String matchPeriod;
     private static String title;
+    private static String leftTeam;
+    private static String rightTeam;
+    private static String leftTeamId;
+    private static String rightTeamId;
     private boolean isGameLive = false;
     private String currentMatchPeriod; //当前的比赛状态
-    private UpdataGameDataThread updataGameDataThread;
+    private Handler mHandler = new Handler();
     private NBAGameDetailPresenter gameDetailPresenter;
     private List<Fragment> fragmentList = new ArrayList<>();
-    private ViewPagerFragmentAdatper adatper;
 
-    private String [] title_1 ={"前瞻","图文"};
-    private String [] title_2 ={"图文","数据","统计","集锦"};
+    private String[] title_1 = {"前瞻", "图文"};
+    private String[] title_2 = {"图文", "数据", "统计", "集锦"};
 
     @Override
     protected int getContentViewLayoutID() {
@@ -93,7 +88,7 @@ public class NBAGameDetailActivity extends BaseSwipeBackCompatActivity implement
 
     @Override
     protected void initViewsAndEvents() {
-        MyStatusBarUtil.setStatusTransparent(mContext,false);
+        MyStatusBarUtil.setStatusTransparent(mContext, false);
         toolbar.setTitle(" ");
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -104,40 +99,37 @@ public class NBAGameDetailActivity extends BaseSwipeBackCompatActivity implement
             }
         });
         tvTitle.setText(title);
-        gameDetailPresenter = new NBAGameDetailPresenter(mContext,this);
+        gameDetailPresenter = new NBAGameDetailPresenter(mContext, this);
         gameDetailPresenter.getNBAGameInfo(gameMid);
-        updataGameDataThread = new UpdataGameDataThread();
-        updataGameDataThread.start();
         currentMatchPeriod = matchPeriod;
         initTablayout();
     }
 
 
-    private void initTablayout(){
+    private void initTablayout() {
         fragmentList.clear();
-        if(currentMatchPeriod.equals("0")){
-            fragmentList.add( GamePreviewFragment.getInstance(gameMid));
-            fragmentList.add( GameTextLiveFragment.getInstance(gameMid,matchPeriod));
-            adatper = new ViewPagerFragmentAdatper(getSupportFragmentManager(),fragmentList,title_1);
+        if (currentMatchPeriod.equals("0")) {
+            fragmentList.add(GamePreviewFragment.getInstance(gameMid));
+            fragmentList.add(GameTextLiveFragment.getInstance(gameMid, matchPeriod));
+            ViewPagerFragmentAdatper adatper = new ViewPagerFragmentAdatper(getSupportFragmentManager(), fragmentList, title_1);
             viewPager.setAdapter(adatper);
             tabLayout.setupWithViewPager(viewPager);
-        }else {
-            fragmentList.add( GameTextLiveFragment.getInstance(gameMid,matchPeriod));
-            fragmentList.add( GameLiveDataFragment.getInstance(gameMid));
-            fragmentList.add( GameLiveStatisticsFragment.getInstance(gameMid));
-            fragmentList.add( GameLiveHighlightFragment.getInstance(gameMid));
-            adatper = new ViewPagerFragmentAdatper(getSupportFragmentManager(),fragmentList,title_2);
+        } else {
+            fragmentList.add(GameTextLiveFragment.getInstance(gameMid, matchPeriod));
+            fragmentList.add(GameLiveDataFragment.getInstance(gameMid));
+            fragmentList.add(GameLiveStatisticsFragment.getInstance(gameMid, matchPeriod, leftTeam, rightTeam));
+            fragmentList.add(GameLiveHighlightFragment.getInstance(gameMid));
+            ViewPagerFragmentAdatper adatper = new ViewPagerFragmentAdatper(getSupportFragmentManager(), fragmentList, title_2);
             viewPager.setAdapter(adatper);
             tabLayout.setupWithViewPager(viewPager);
         }
     }
 
 
-
     @Override
     public void showError(String msg) {
-        if(msg.equals("0")){
-            Toast.makeText(mContext,"网络连接异常",Toast.LENGTH_SHORT).show();
+        if (msg.equals("0")) {
+            Toast.makeText(mContext, "网络连接异常", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -157,26 +149,28 @@ public class NBAGameDetailActivity extends BaseSwipeBackCompatActivity implement
         tvGameType.setText(gameBaseInfo.getData().getDesc());
         tvLeftTeamGoal.setText(gameBaseInfo.getData().getLeftGoal());
         tvRightTeamGoal.setText(gameBaseInfo.getData().getRightGoal());
-        Xutils3ImageUtils.display(ivLeftTeamIcon,gameBaseInfo.getData().getLeftBadge(),
-                Xutils3ImageUtils.getImageOptionsDefault(R.mipmap.latest_pic_default,R.mipmap.latest_pic_default));
-        Xutils3ImageUtils.display(ivRightTeamIcon,gameBaseInfo.getData().getRightBadge(),
-                Xutils3ImageUtils.getImageOptionsDefault(R.mipmap.latest_pic_default,R.mipmap.latest_pic_default));
-        String mPeriod =gameBaseInfo.getData().getMatchPeriod();
+        Xutils3ImageUtils.display(ivLeftTeamIcon, gameBaseInfo.getData().getLeftBadge(),
+                Xutils3ImageUtils.getImageOptionsDefault(R.mipmap.latest_pic_default, R.mipmap.latest_pic_default));
+        Xutils3ImageUtils.display(ivRightTeamIcon, gameBaseInfo.getData().getRightBadge(),
+                Xutils3ImageUtils.getImageOptionsDefault(R.mipmap.latest_pic_default, R.mipmap.latest_pic_default));
+        String mPeriod = gameBaseInfo.getData().getMatchPeriod();
         currentMatchPeriod = mPeriod;
-        if(currentMatchPeriod.equals("0")){//未开始
+        if (currentMatchPeriod.equals("0")) {//未开始
             tvGameState.setTextColor(getResources().getColor(R.color.gray_cc));
-            tvGameState.setText("未开始 "+gameBaseInfo.getData().getStartHour());
+            tvGameState.setText("未开始 " + gameBaseInfo.getData().getStartHour());
             isGameLive = false;
-        }else if(currentMatchPeriod.equals("2")){//已经结束
+        } else if (currentMatchPeriod.equals("2")) {//已经结束
             tvGameState.setText("已结束");
             isGameLive = false;
             tvGameState.setTextColor(getResources().getColor(R.color.gray_cc));
-        }else if(currentMatchPeriod.equals("1")){//直播中
+        } else if (currentMatchPeriod.equals("1")) {//直播中
             tvGameState.setText(gameBaseInfo.getData().getQuarterDesc());
             tvGameState.setTextColor(Color.RED);
             isGameLive = true;
         }
-        if(!currentMatchPeriod.equals(matchPeriod)){//比赛又为开始转变到开始直播 重新初始化tablayout
+        leftTeamId = gameBaseInfo.getData().getLeftId();
+        rightTeamId = gameBaseInfo.getData().getRightId();
+        if (!currentMatchPeriod.equals(matchPeriod)) {//比赛又为开始转变到开始直播 重新初始化tablayout
             initTablayout();
         }
     }
@@ -190,35 +184,56 @@ public class NBAGameDetailActivity extends BaseSwipeBackCompatActivity implement
         gameMid = bundle.getString(Config.GAME_MID);
         matchPeriod = bundle.getString(Config.MATCH_PERIOD);
         title = bundle.getString(Config.GAME_VS);
-    }
+        leftTeam = bundle.getString(Config.LEFT_TEAM);
+        rightTeam = bundle.getString(Config.RIGHT_TEAM);
 
-    /**
-     * 每隔十秒更新数据
-     */
-    private class UpdataGameDataThread extends Thread{
-        @Override
-        public void run() {
-            super.run();
-            while (true){
-                try{
-                    Thread.sleep(10000);
-                    if(isGameLive){
-                        gameDetailPresenter.getNBAGameInfo(gameMid);
-                    }
-                }catch (Exception e){
-                    e.printStackTrace();
-                }
-            }
-        }
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if(updataGameDataThread!=null && updataGameDataThread.isAlive()){
-            updataGameDataThread.interrupt();
-        }
     }
 
 
+    @Override
+    public void onStop() {
+        super.onStop();
+        mHandler.removeCallbacks(mTasks);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        mHandler.postDelayed(mTasks, UPDATA_GAME_DATA_TIME);
+    }
+
+    private final int UPDATA_GAME_DATA_TIME = 5000;
+    private Runnable mTasks = new Runnable() {
+        @Override
+        public void run() {
+            if (!matchPeriod.equals("2")) {
+                gameDetailPresenter.getNBAGameInfo(gameMid);
+            }
+            mHandler.postDelayed(mTasks, UPDATA_GAME_DATA_TIME);
+        }
+    };
+
+
+    @OnClick({R.id.iv_left_team_icon, R.id.iv_right_team_icon})
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.iv_left_team_icon:
+                Bundle bundle_1 = new Bundle();
+                bundle_1.putString(Config.TEAM_ID, leftTeamId);
+                bundle_1.putString(Config.TEAM_NAME, leftTeam);
+                NBATeamDetailActivity.startAction(mContext, bundle_1);
+                break;
+            case R.id.iv_right_team_icon:
+                Bundle bundle = new Bundle();
+                bundle.putString(Config.TEAM_ID, rightTeamId);
+                bundle.putString(Config.TEAM_NAME, rightTeam);
+                NBATeamDetailActivity.startAction(mContext, bundle);
+                break;
+        }
+    }
 }

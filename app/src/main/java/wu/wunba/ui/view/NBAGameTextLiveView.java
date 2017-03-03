@@ -11,5 +11,5 @@ import wu.wunba.model.NBAGameTextLiveItem;
  */
 
 public interface NBAGameTextLiveView extends BaseView{
-    void showGameTextLive(List<NBAGameTextLiveItem> nbaGameTextLiveItemList);
+    void showGameTextLive(boolean isUpdata,List<NBAGameTextLiveItem> nbaGameTextLiveItemList);
 }

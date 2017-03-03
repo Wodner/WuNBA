@@ -7,6 +7,9 @@
     <color name="default_color">#0c2940</color>
     <color name="toolbar_color">#0c2940</color>
 
+
+    <color name="color_main_text">#1580Ea</color>
+
     <!--   //灰色字体-->
     <color name="text_title_gray">@color/color_text3</color>
     <!--<color name="text_black">@color/color_4d5359</color>-->

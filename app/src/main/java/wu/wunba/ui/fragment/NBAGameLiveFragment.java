@@ -2,6 +2,7 @@ package wu.wunba.ui.fragment;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -77,7 +78,7 @@ public class NBAGameLiveFragment extends BaseFragment implements NBAGameAdapter.
     private boolean isSelectDate = false;
     private NBAGameAdapter nbaGameAdapter;
     private  Callback.Cancelable cancelable;
-    private UpdataGameDataThread updataGameDataThread;
+    private Handler mHandler = new Handler();
     private NBAGameLivePresenter gameLivePresenter;
     public static NBAGameLiveFragment nbaGameLiveFragment;
     public static NBAGameLiveFragment getInstance(){
@@ -102,10 +103,8 @@ public class NBAGameLiveFragment extends BaseFragment implements NBAGameAdapter.
         initRecyclerView();
         if(!EventBus.getDefault().isRegistered(this))
             EventBus.getDefault().register(this);
-        updataGameDataThread = new UpdataGameDataThread();
         gameLivePresenter = new NBAGameLivePresenter(mContext,this);
         gameLivePresenter.initialized(0);
-        updataGameDataThread.start();
     }
 
     @Override
@@ -222,6 +221,8 @@ public class NBAGameLiveFragment extends BaseFragment implements NBAGameAdapter.
         bundle.putString(Config.GAME_MID,matchesBean.getMatchInfo().getMid());
         bundle.putString(Config.MATCH_PERIOD,matchesBean.getMatchInfo().getMatchPeriod());
         bundle.putString(Config.GAME_VS,matchesBean.getMatchInfo().getLeftName() + "@" + matchesBean.getMatchInfo().getRightName());
+        bundle.putString(Config.LEFT_TEAM,matchesBean.getMatchInfo().getLeftName());
+        bundle.putString(Config.RIGHT_TEAM,matchesBean.getMatchInfo().getRightName());
         NBAGameDetailActivity.startAction(mContext,bundle);
     }
 
@@ -259,29 +260,31 @@ public class NBAGameLiveFragment extends BaseFragment implements NBAGameAdapter.
         nbaGameAdapter.setData(nbaMatch.getData().getMatches());
     }
 
-
-    /**
-     * 每隔十秒更新数据
-     */
-    private class UpdataGameDataThread extends Thread{
-        @Override
-        public void run() {
-            super.run();
-            while (true){
-                try{
-                    Thread.sleep(10000);
-                    if(isGameLive){
-                        if(getCurrentDate().equals(noCurrentDate)){//只更新当天的NBA数据
-                            gameLivePresenter.getNBAGameLive(getCurrentDate());
-                        }
-                    }
-                }catch (Exception e){
-                    e.printStackTrace();
-                }
-            }
-        }
+    @Override
+    public void onStop() {
+        super.onStop();
+        mHandler.removeCallbacks(mTasks);
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        mHandler.postDelayed(mTasks,UPDATA_GAME_DATA_TIME);
+    }
+
+    private final int UPDATA_GAME_DATA_TIME = 10000;
+
+    private Runnable mTasks = new Runnable() {
+        @Override
+        public void run() {
+            if(isGameLive){
+                if(getCurrentDate().equals(noCurrentDate)){//只更新当天的NBA数据
+                    gameLivePresenter.getNBAGameLive(getCurrentDate());
+                }
+            }
+            mHandler.postDelayed(mTasks,UPDATA_GAME_DATA_TIME);
+        }
+    };
 
     /**
      * @return

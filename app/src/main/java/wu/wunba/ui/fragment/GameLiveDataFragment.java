@@ -6,7 +6,7 @@ import android.support.v4.app.Fragment;
 import wu.wunba.BaseFragment;
 
 /**
- * 描述：
+ * 描述：比赛直播数据
  * 作者：Wu on 2017/3/2 10:19
  * 邮箱：wuwende@live.cn
  */
@@ -22,4 +22,9 @@ public class GameLiveDataFragment extends BaseFragment {
         fragment.setArguments(bundle);
         return fragment;
     }
+
+
+
+
+
 }

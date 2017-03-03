@@ -94,12 +94,14 @@ public class NBAGameTextLivePresenter implements Presenter {
             public void onSuccess(String s) {
                 gameTextLiveIndex = JsonParser.parseWithGson(NBAGameTextLiveIndex.class,s);
                 int l = gameTextLiveIndex.getData().getIndex().size()-lastIdNum;
-                Logger.d("--ids-长度--- " + l);
+                Logger.d(gameTextLiveIndex.getData().getIndex().size() + "---"+ lastIdNum + "--ids-长度--- " + l);
+                lastIdNum = gameTextLiveIndex.getData().getIndex().size();
+
                 if(l >0){
                     NBAApiRequest.getNBAGameTextLiveInfo(mid, getNewIds(l), new RequestCallBack<String>() {
                         @Override
                         public void onSuccess(String s) {
-                            parseNBAGameText(s);
+                            parseNBAGameText(true,s);
                         }
 
                         @Override
@@ -145,14 +147,11 @@ public class NBAGameTextLivePresenter implements Presenter {
      */
     private void getNBAGameTextLiveInfo(int itemNum,String mid){
         if(itemNum>0){
-//            if(itemNum*PAGER_NUM>gameTextLiveIndex.getData().getIndex().size()){
-//                gameTextLiveView.showError("-1");
-//                return;
-//            }else{
                 NBAApiRequest.getNBAGameTextLiveInfo(mid, getRequestArticleIds(itemNum), new RequestCallBack<String>() {
                     @Override
                     public void onSuccess(String s) {
-                        parseNBAGameText(s);
+                        Logger.w("-----返回最新直播信息：" + s);
+                        parseNBAGameText(false,s);
                     }
 
                     @Override
@@ -160,7 +159,6 @@ public class NBAGameTextLivePresenter implements Presenter {
                         gameTextLiveView.hideLoading(true);
                     }
                 });
-//            }
         }else{
             return;
         }
@@ -203,14 +201,16 @@ public class NBAGameTextLivePresenter implements Presenter {
     /**
      * @param result 解析NBANrews 数据
      */
-    private void parseNBAGameText(String result){
+    private void parseNBAGameText(boolean isUpdata,String result){
         try {
             JSONObject jsonObject = new JSONObject(result);
             JSONObject dataObject = new JSONObject(jsonObject.getString("data"));
             JSONObject textObject = new JSONObject(dataObject.getString("detail"));
+            Logger.w("-----信息数目：" + gameTextLiveIndexListBuffer.size());
             for (int i=0;i<gameTextLiveIndexListBuffer.size();i++){
                 JSONObject itemObject = new JSONObject(textObject.getString(gameTextLiveIndexListBuffer.get(i)));
                 if(itemObject.getString("ctype").equals("2")){//文字
+                    Logger.w("-----返文字类型数目：" + gameTextLiveIndexListBuffer.size());
                     NBAGameTextLiveItem textLiveItem = JsonParser.parseWithGson(NBAGameTextLiveItem.class,textObject.getString(gameTextLiveIndexListBuffer.get(i)));
                     textLiveItemList.add(textLiveItem);
                 }else if(itemObject.getString("ctype").equals("1")){//视频
@@ -219,7 +219,7 @@ public class NBAGameTextLivePresenter implements Presenter {
 
                 }
             }
-            gameTextLiveView.showGameTextLive(textLiveItemList);
+            gameTextLiveView.showGameTextLive(isUpdata,textLiveItemList);
             textLiveItemList.clear();
             gameTextLiveView.hideLoading(true);
         } catch (JSONException e) {

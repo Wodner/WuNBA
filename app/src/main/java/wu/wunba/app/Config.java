@@ -19,4 +19,7 @@ public class Config {
     public static final String MATCH_PERIOD = "matchperiod";
     public static final String GAME_MID = "gameid";
     public static final String GAME_VS = "gamevs";
+
+    public static final String LEFT_TEAM = "leftteam";
+    public static final String RIGHT_TEAM = "rightteam";
 }
