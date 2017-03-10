@@ -88,18 +88,16 @@ public class Xutils3ImageUtils {
 
     /**
      * @param isCircle
-     * @param radius
-     * @param isGif
      * @param resLoading
      * @param resFailure
      * @return
      */
-    public static ImageOptions getConfigImageOptions(boolean isCircle,int radius,boolean isGif,int resLoading,int resFailure){
+    public static ImageOptions getConfigImageOptions(boolean isCircle,int resLoading,int resFailure){
         ImageOptions imageOptionsCircle = new ImageOptions.Builder()
                 .setImageScaleType(ImageView.ScaleType.FIT_CENTER)
                 .setCircular(isCircle)
-                .setRadius(DensityUtil.dip2px(radius))
-                .setIgnoreGif(isGif)//是否忽略gif图。false表示不忽略。不写这句，默认是true
+//                .setRadius(DensityUtil.dip2px(radius))
+//                .setIgnoreGif(isGif)//是否忽略gif图。false表示不忽略。不写这句，默认是true
                 .setCrop(true)
                 .setFailureDrawableId(resFailure)
                 .setLoadingDrawableId(resLoading)

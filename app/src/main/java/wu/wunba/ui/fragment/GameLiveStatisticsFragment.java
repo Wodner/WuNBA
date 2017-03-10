@@ -241,7 +241,7 @@ public class GameLiveStatisticsFragment extends BaseFragment implements NBAGameL
     private Runnable mTasks = new Runnable() {
         @Override
         public void run() {
-            if (matchPeriod.equals("2")) {
+            if (matchPeriod.equals("1")) {
                 statisticsPresenter.getNBAGameLiveStatistics(false,mid);
             }
             mHandler.postDelayed(mTasks,UPDATA_GAME_DATA_TIME);

@@ -275,4 +275,13 @@ public class NBAApi {
     }
 
 
+    /**
+     * @param mid 获取比赛直播的数据
+     * @return
+     */
+    public static String getNBAGameLiveDataInfo(String mid){
+        return BaseUrl + "match/stat?mid=" + mid + "&tabType=1" + DefaulttUrl;
+    }
+
+
 }

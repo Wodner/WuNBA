@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <RelativeLayout
+        android:padding="@dimen/px_16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/iv_left_player_icon"
+            android:layout_width="@dimen/px_88"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_kh"/>
+        <TextView
+            android:id="@+id/tv_left_score"
+            android:layout_toRightOf="@id/iv_left_player_icon"
+            android:layout_margin="@dimen/px_16"
+            android:textSize="@dimen/text_middle_21"
+            android:textColor="@color/black_80"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="21"/>
+        <TextView
+            android:id="@+id/tv_left_player_name"
+            android:layout_below="@id/iv_left_player_icon"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="@dimen/px_6"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_content_gray"
+            android:textSize="@dimen/text_small_12"
+            android:text="邓肯"/>
+        <TextView
+            android:id="@+id/tv_left_player_position_jersey"
+            android:layout_below="@id/tv_left_player_name"
+            android:layout_marginLeft="@dimen/px_6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_content_gray"
+            android:textSize="@dimen/text_small_12"
+            android:text="大前锋  #21"/>
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_nba_category"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:textColor="@color/text_content_gray"
+        android:text="篮球"/>
+
+
+    <RelativeLayout
+        android:padding="@dimen/px_16"
+        android:layout_alignParentRight="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tv_right_score"
+            android:layout_margin="@dimen/px_16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black_80"
+            android:textSize="@dimen/text_middle_21"
+            android:text="21"/>
+        <ImageView
+            android:id="@+id/iv_right_player_icon"
+            android:layout_toRightOf="@id/tv_right_score"
+            android:layout_width="@dimen/px_88"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_kh"/>
+        <TextView
+            android:id="@+id/tv_right_player_name"
+            android:layout_below="@id/iv_right_player_icon"
+            android:layout_marginLeft="@dimen/px_6"
+            android:textColor="@color/text_content_gray"
+            android:textSize="@dimen/text_small_12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="邓肯"/>
+        <TextView
+            android:id="@+id/tv_right_player_position_jersey"
+            android:layout_below="@id/tv_right_player_name"
+            android:layout_marginLeft="@dimen/px_6"
+            android:textColor="@color/text_content_gray"
+            android:textSize="@dimen/text_small_12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="大前锋  #21"/>
+    </RelativeLayout>
+
+
+
+
+
+
+
+
+
+</RelativeLayout>

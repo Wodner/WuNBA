@@ -992,4 +992,38 @@ public class NBAApiRequest {
         });
     }
 
+
+    /**
+     * 获取图文直播的统计数据
+     * @param requestCallBack
+     */
+    public static void getNBAGameLiveDataInfo(String mid, final RequestCallBack<String> requestCallBack){
+        RequestParams params = new RequestParams(NBAApi.getNBAGameLiveDataInfo(mid));
+        x.http().get(params, new Callback.CommonCallback<String>() {
+            @Override
+            public void onSuccess(String result) {
+                if (result != null && !TextUtils.isEmpty(result)) {
+                    requestCallBack.onSuccess(result);
+                }else {
+                    requestCallBack.onFailure("获取数据失败");
+                }
+            }
+
+            @Override
+            public void onError(Throwable ex, boolean isOnCallback) {
+                requestCallBack.onFailure("获取数据失败");
+            }
+
+            @Override
+            public void onCancelled(CancelledException cex) {
+
+            }
+
+            @Override
+            public void onFinished() {
+
+            }
+        });
+    }
+
 }

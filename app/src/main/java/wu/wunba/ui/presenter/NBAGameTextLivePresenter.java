@@ -150,7 +150,7 @@ public class NBAGameTextLivePresenter implements Presenter {
                 NBAApiRequest.getNBAGameTextLiveInfo(mid, getRequestArticleIds(itemNum), new RequestCallBack<String>() {
                     @Override
                     public void onSuccess(String s) {
-                        Logger.w("-----返回最新直播信息：" + s);
+//                        Logger.w("-----返回最新直播信息：" + s);
                         parseNBAGameText(false,s);
                     }
 
@@ -210,7 +210,7 @@ public class NBAGameTextLivePresenter implements Presenter {
             for (int i=0;i<gameTextLiveIndexListBuffer.size();i++){
                 JSONObject itemObject = new JSONObject(textObject.getString(gameTextLiveIndexListBuffer.get(i)));
                 if(itemObject.getString("ctype").equals("2")){//文字
-                    Logger.w("-----返文字类型数目：" + gameTextLiveIndexListBuffer.size());
+//                    Logger.w("-----返文字类型数目：" + gameTextLiveIndexListBuffer.size());
                     NBAGameTextLiveItem textLiveItem = JsonParser.parseWithGson(NBAGameTextLiveItem.class,textObject.getString(gameTextLiveIndexListBuffer.get(i)));
                     textLiveItemList.add(textLiveItem);
                 }else if(itemObject.getString("ctype").equals("1")){//视频
