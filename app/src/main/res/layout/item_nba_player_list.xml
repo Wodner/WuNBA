@@ -7,7 +7,7 @@
     app:cardElevation="@dimen/px_10">
 
     <RelativeLayout
-        android:background="@drawable/selector_white_gray_item"
+        android:background="@drawable/ripple_touch_bg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <LinearLayout

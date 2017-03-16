@@ -109,7 +109,7 @@ public class NBAGameDetailActivity extends BaseSwipeBackCompatActivity implement
     private void initTablayout() {
         fragmentList.clear();
         if (currentMatchPeriod.equals("0")) {
-            fragmentList.add(GamePreviewFragment.getInstance(gameMid));
+            fragmentList.add(GamePreviewFragment.getInstance(gameMid, matchPeriod));
             fragmentList.add(GameTextLiveFragment.getInstance(gameMid, matchPeriod));
             ViewPagerFragmentAdatper adatper = new ViewPagerFragmentAdatper(getSupportFragmentManager(), fragmentList, title_1);
             viewPager.setAdapter(adatper);

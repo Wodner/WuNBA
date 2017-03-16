@@ -17,7 +17,7 @@ import wu.wunba.model.NBAGameLiveDataInfo;
  * 邮箱：wuwende@live.cn
  */
 
-public class NBAGameLiveDataAdapter extends RecyclerView.Adapter<BaseHolder>{
+public class NBAGameLiveDataAdapter extends RecyclerView.Adapter<GameLiveDataBaseHolder>{
 
 
     private final int VIEW_SCORE = 1000;
@@ -50,7 +50,7 @@ public class NBAGameLiveDataAdapter extends RecyclerView.Adapter<BaseHolder>{
     }
 
     @Override
-    public BaseHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public GameLiveDataBaseHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         switch (viewType){
             case VIEW_SCORE:
                 View view_score = LayoutInflater.from(mContext).inflate(R.layout.item_live_score,parent,false);
@@ -72,7 +72,7 @@ public class NBAGameLiveDataAdapter extends RecyclerView.Adapter<BaseHolder>{
 
 
     @Override
-    public void onBindViewHolder(BaseHolder holder, int position) {
+    public void onBindViewHolder(GameLiveDataBaseHolder holder, int position) {
         holder.refreshData(gameLiveDataInfo,position);
     }
 

@@ -21,7 +21,7 @@ import wu.wunba.utils.Xutils3ImageUtils;
  * 邮箱：wuwende@live.cn
  */
 
-public class LiveMaxPlayerViewHolder extends BaseHolder<NBAGameLiveDataInfo> {
+public class LiveMaxPlayerViewHolder extends GameLiveDataBaseHolder<NBAGameLiveDataInfo> {
 
     private Context mContext;
     private TextView tvTitle;

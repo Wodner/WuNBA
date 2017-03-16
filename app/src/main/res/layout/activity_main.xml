@@ -71,7 +71,7 @@
                 android:cacheColorHint="@android:color/transparent"
                 android:divider="@null"
                 android:dividerHeight="0dp"
-                android:listSelector="@drawable/selector_white_gray_item"
+                android:listSelector="@drawable/ripple_touch_bg"
                 android:overScrollMode="never"
                 android:scrollbars="none" />
         </RelativeLayout>

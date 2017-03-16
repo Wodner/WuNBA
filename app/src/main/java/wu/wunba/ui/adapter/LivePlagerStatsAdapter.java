@@ -19,7 +19,7 @@ import wu.wunba.model.NBAGameLiveDataInfo;
  * 邮箱：wuwende@live.cn
  */
 
-public class LivePlagerStatsAdapter extends BaseHolder<NBAGameLiveDataInfo>  {
+public class LivePlagerStatsAdapter extends GameLiveDataBaseHolder<NBAGameLiveDataInfo> {
 
 
     private Context mContext;
@@ -93,7 +93,7 @@ public class LivePlagerStatsAdapter extends BaseHolder<NBAGameLiveDataInfo>  {
 
         @Override
         public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_lineanlayout, parent, false);
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_nba_live_player_stats, parent, false);
             MyViewHolder holder = new MyViewHolder(view);
             return holder;
         }

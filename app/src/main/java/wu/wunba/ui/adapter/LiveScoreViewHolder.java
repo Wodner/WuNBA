@@ -21,7 +21,7 @@ import wu.wunba.utils.Xutils3ImageUtils;
  * 邮箱：wuwende@live.cn
  */
 
-public class LiveScoreViewHolder extends BaseHolder<NBAGameLiveDataInfo>{
+public class LiveScoreViewHolder extends GameLiveDataBaseHolder<NBAGameLiveDataInfo> {
 
 
     private Context mContext;

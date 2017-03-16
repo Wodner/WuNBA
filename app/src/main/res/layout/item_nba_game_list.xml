@@ -9,7 +9,7 @@
 
 
     <LinearLayout
-        android:background="@drawable/selector_white_gray_item"
+        android:background="@drawable/ripple_touch_bg"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -159,7 +159,7 @@
             <!--android:layout_weight="1"-->
             <!--android:gravity="center"-->
             <!--android:padding="@dimen/text_margin_10"-->
-            <!--android:background="@drawable/selector_white_gray_item"-->
+            <!--android:background="@drawable/ripple_touch_bg"-->
             <!--android:layout_height="wrap_content">-->
             <!--<ImageView-->
                 <!--android:id="@+id/iv_score_box_preview"-->
@@ -187,7 +187,7 @@
             <!--android:layout_weight="1"-->
             <!--android:gravity="center"-->
             <!--android:padding="@dimen/text_margin_10"-->
-            <!--android:background="@drawable/selector_white_gray_item"-->
+            <!--android:background="@drawable/ripple_touch_bg"-->
             <!--android:layout_height="wrap_content">-->
             <!--<ImageView-->
                 <!--android:id="@+id/iv_highlight_txt_pic"-->

@@ -56,24 +56,30 @@
         android:layout_alignParentRight="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/iv_right_player_icon"
+            android:layout_alignParentRight="true"
+            android:layout_width="@dimen/px_88"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_kh"/>
+
+
         <TextView
             android:id="@+id/tv_right_score"
+            android:layout_toLeftOf="@id/iv_right_player_icon"
             android:layout_margin="@dimen/px_16"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/black_80"
             android:textSize="@dimen/text_middle_21"
-            android:text="21"/>
-        <ImageView
-            android:id="@+id/iv_right_player_icon"
-            android:layout_toRightOf="@id/tv_right_score"
-            android:layout_width="@dimen/px_88"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/ic_kh"/>
+            android:text="21" />
+
         <TextView
             android:id="@+id/tv_right_player_name"
             android:layout_below="@id/iv_right_player_icon"
             android:layout_marginLeft="@dimen/px_6"
+            android:layout_alignParentRight="true"
             android:textColor="@color/text_content_gray"
             android:textSize="@dimen/text_small_12"
             android:layout_width="wrap_content"
@@ -82,6 +88,7 @@
         <TextView
             android:id="@+id/tv_right_player_position_jersey"
             android:layout_below="@id/tv_right_player_name"
+            android:layout_alignParentRight="true"
             android:layout_marginLeft="@dimen/px_6"
             android:textColor="@color/text_content_gray"
             android:textSize="@dimen/text_small_12"

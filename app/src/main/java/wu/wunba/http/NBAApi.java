@@ -284,4 +284,13 @@ public class NBAApi {
     }
 
 
+    /**
+     * @param mid 获取比赛前瞻数据
+     * @return
+     */
+    public static String getNBAGamePreviewInfo(String mid){
+        return BaseUrl + "match/stat?mid=" + mid + "&tabType=3" + DefaulttUrl;
+    }
+
+
 }

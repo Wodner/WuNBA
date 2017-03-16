@@ -9,12 +9,12 @@ import android.view.View;
  * 邮箱：wuwende@live.cn
  */
 
-public class BaseHolder<T> extends RecyclerView.ViewHolder{
+public class GameLiveDataBaseHolder<T> extends RecyclerView.ViewHolder{
 
 
 
 
-    public BaseHolder(View itemView) {
+    public GameLiveDataBaseHolder(View itemView) {
         super(itemView);
     }
 

@@ -33,7 +33,7 @@ import static wu.wunba.utils.AppUtils.getAssets;
  * 邮箱：wuwende@live.cn
  */
 
-public class LiveTeamDataViewHolder extends BaseHolder<NBAGameLiveDataInfo>{
+public class LiveTeamDataViewHolder extends GameLiveDataBaseHolder<NBAGameLiveDataInfo> {
 
     private Context mContext;
     private TextView tvTitle;

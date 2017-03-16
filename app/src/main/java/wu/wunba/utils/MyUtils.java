@@ -4,8 +4,6 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
-import com.orhanobut.logger.Logger;
-
 import cn.sharesdk.framework.ShareSDK;
 import cn.sharesdk.onekeyshare.OnekeyShare;
 import wu.wunba.R;
@@ -21,7 +19,6 @@ public class MyUtils {
     public static String [] week = {"周日","周一","周二","周三","周四","周五","周六"};
 
     public static String getWeek(int i){
-        Logger.d("------ " + i);
        return week[i];
     }
 
@@ -77,6 +74,13 @@ public class MyUtils {
     }
 
 
+    /** 一键分享
+     * @param context
+     * @param titleUrl
+     * @param url
+     * @param title
+     * @param txtAbstract
+     */
     public static void showShare(Context context,String titleUrl,String url,String title,String txtAbstract) {
         ShareSDK.initSDK(context);
         OnekeyShare oks = new OnekeyShare();

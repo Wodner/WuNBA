@@ -22,10 +22,11 @@ import wu.wunba.R;
 import wu.wunba.app.Config;
 import wu.wunba.model.NBAPlayerBaseInfo;
 import wu.wunba.model.NBAPlayerData;
-import wu.wunba.ui.presenter.NBAPlayerDetailPresenter;
 import wu.wunba.ui.adapter.NBAPlayerDataAdapter;
+import wu.wunba.ui.presenter.NBAPlayerDetailPresenter;
 import wu.wunba.ui.view.NBAPlayerDetailView;
 import wu.wunba.ui.widget.BasketballLoading;
+import wu.wunba.utils.MyStatusBarUtil;
 import wu.wunba.utils.Xutils3ImageUtils;
 
 import static wu.wunba.ui.presenter.NBAPlayerDetailPresenter.TYPE_CAREER;
@@ -91,6 +92,7 @@ public class NBAPlayerDetialActivity extends BaseSwipeBackCompatActivity impleme
 
     @Override
     protected void initViewsAndEvents() {
+        MyStatusBarUtil.setStatusTransparent(this,false);
         toolbar.setTitle(" ");
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

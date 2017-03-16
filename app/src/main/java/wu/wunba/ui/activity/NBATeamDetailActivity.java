@@ -27,6 +27,7 @@ import wu.wunba.ui.adapter.NBATeamPlayerAdapter;
 import wu.wunba.ui.presenter.NBATeamBasnInfoPresenter;
 import wu.wunba.ui.view.NBATeamBaseInfoView;
 import wu.wunba.ui.widget.BasketballLoading;
+import wu.wunba.utils.MyStatusBarUtil;
 import wu.wunba.utils.Xutils3ImageUtils;
 
 /**
@@ -103,6 +104,7 @@ public class NBATeamDetailActivity extends BaseSwipeBackCompatActivity implement
 
     @Override
     protected void initViewsAndEvents() {
+        MyStatusBarUtil.setStatusTransparent(this,false);
         toolbar.setTitle(" ");
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

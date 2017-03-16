@@ -16,7 +16,7 @@
         <RelativeLayout
             android:id="@+id/rl_title_team"
             android:padding="@dimen/text_margin"
-            android:background="@drawable/selector_white_gray_item"
+            android:background="@drawable/ripple_touch_bg"
             android:layout_width="match_parent" android:layout_height="wrap_content">
             <ImageView android:id="@+id/iv_title_team" android:layout_width="wrap_content"
                 android:layout_height="wrap_content" android:src="@mipmap/more_icon_content_team"/>
@@ -32,7 +32,7 @@
         <RelativeLayout
             android:id="@+id/rl_title_player"
             android:padding="@dimen/text_margin"
-            android:background="@drawable/selector_white_gray_item"
+            android:background="@drawable/ripple_touch_bg"
             android:layout_width="match_parent" android:layout_height="wrap_content">
             <ImageView android:id="@+id/iv_title_player" android:layout_width="wrap_content"
                 android:layout_height="wrap_content" android:src="@mipmap/more_icon_content_player"/>
@@ -49,7 +49,7 @@
         <RelativeLayout
             android:id="@+id/rl_title_team_schedule"
             android:padding="@dimen/text_margin"
-            android:background="@drawable/selector_white_gray_item"
+            android:background="@drawable/ripple_touch_bg"
             android:layout_width="match_parent" android:layout_height="wrap_content">
             <ImageView  android:id="@+id/iv_title_team_schedule" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@mipmap/more_icon_content_qdsc"/>
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
@@ -65,7 +65,7 @@
         <RelativeLayout
             android:id="@+id/rl_title_important_day"
             android:padding="@dimen/text_margin"
-            android:background="@drawable/selector_white_gray_item"
+            android:background="@drawable/ripple_touch_bg"
             android:layout_width="match_parent" android:layout_height="wrap_content">
             <ImageView
                 android:id="@+id/iv_title_important_day" android:layout_width="wrap_content"
@@ -89,7 +89,7 @@
         <RelativeLayout
             android:id="@+id/rl_title_today_nba"
             android:padding="@dimen/text_margin"
-            android:background="@drawable/selector_white_gray_item"
+            android:background="@drawable/ripple_touch_bg"
             android:layout_width="match_parent" android:layout_height="wrap_content">
             <ImageView
                 android:id="@+id/iv_title_today_nba" android:layout_width="wrap_content"
@@ -110,7 +110,7 @@
         <RelativeLayout
             android:id="@+id/rl_title_nba_store"
             android:padding="@dimen/text_margin"
-            android:background="@drawable/selector_white_gray_item"
+            android:background="@drawable/ripple_touch_bg"
             android:layout_width="match_parent" android:layout_height="wrap_content">
             <ImageView
                 android:id="@+id/iv_title_nba_store" android:layout_width="wrap_content"
